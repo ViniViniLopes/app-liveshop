@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Recomendações IA - Runner's Xchange</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#8cdc00",
+                        "surface-container-highest": "#313728",
+                        "tertiary-container": "#e2e2e2",
+                        "on-primary-container": "#457000",
+                        "on-surface-variant": "#c0caad",
+                        "surface-bright": "#353b2c",
+                        "on-secondary-fixed-variant": "#474646",
+                        "on-primary-fixed": "#102000",
+                        "inverse-surface": "#dfe5cf",
+                        "outline": "#8a947a",
+                        "on-primary": "#1f3700",
+                        "surface-container-lowest": "#0a1005",
+                        "secondary": "#c8c6c5",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-container": "#bab8b7",
+                        "primary": "#ffffff",
+                        "outline-variant": "#414a34",
+                        "on-tertiary-container": "#636565",
+                        "error": "#ffb4ab",
+                        "tertiary": "#ffffff",
+                        "secondary-fixed": "#e5e2e1",
+                        "inverse-on-surface": "#2c3224",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface": "#101508",
+                        "error-container": "#93000a",
+                        "secondary-container": "#4a4949",
+                        "on-tertiary": "#2f3131",
+                        "surface-dim": "#101508",
+                        "on-primary-fixed-variant": "#304f00",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container": "#1c2114",
+                        "surface-variant": "#313728",
+                        "primary-container": "#a0fb00",
+                        "background": "#101508",
+                        "surface-tint": "#8cdc00",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "inverse-primary": "#416900",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "surface-container-low": "#181d10",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "surface-container-high": "#262c1e",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-surface": "#dfe5cf",
+                        "on-background": "#dfe5cf",
+                        "on-secondary": "#313030",
+                        "primary-fixed": "#a0fb00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "unit": "4px",
+                        "safe-area-bottom": "32px",
+                        "margin-mobile": "16px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "body-lg": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(24, 29, 16, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .ai-glow {
+            box-shadow: 0 0 20px rgba(160, 251, 0, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md pb-safe-area-bottom">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/15 shadow-none flex items-center justify-between px-margin-mobile h-16">
+<div class="flex items-center gap-4">
+<button aria-label="Voltar" class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary-fixed italic tracking-tighter">Runner's Xchange</h1>
+</div>
+<button aria-label="Configurações" class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header><div class="sticky top-16 z-40 w-full bg-primary-fixed text-on-primary-fixed py-3 px-margin-mobile flex flex-col md:flex-row items-center justify-center gap-2 md:gap-8 shadow-[0_4px_20px_rgba(160,251,0,0.3)]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined font-bold" data-icon="bolt">bolt</span>
+<span class="font-headline-md text-sm md:text-base uppercase tracking-tighter italic">OFERTA RELÂMPAGO: 20% OFF</span>
+</div>
+<div class="flex items-center gap-3 bg-on-primary-fixed/10 px-4 py-1 rounded-full border border-on-primary-fixed/20">
+<span class="font-label-sm uppercase tracking-widest opacity-80">Expira em:</span>
+<span class="font-display-lg text-2xl md:text-3xl tracking-tight leading-none">00:15:00</span>
+</div>
+<button class="hidden md:block bg-on-primary-fixed text-primary-fixed px-4 py-1 rounded-full font-label-bold text-xs hover:bg-on-primary-fixed/90 transition-colors uppercase">
+        Aproveitar Agora
+    </button>
+</div>
+<!-- Main Content Canvas -->
+<main class="px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto pb-24 md:pb-12 pt-8">
+<!-- Header Section -->
+<section class="mb-8">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="auto_awesome">auto_awesome</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Recomendado para Você</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+                Nossa IA analisou suas últimas lives e visualizações. Baseado no seu estilo, selecionamos peças complementares para o seu próximo treino.
+            </p>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter md:gap-4 auto-rows-[minmax(180px,auto)]">
+<!-- Hero AI Pick Card (Spans across) -->
+<article class="glass-panel rounded-xl col-span-1 md:col-span-8 row-span-2 overflow-hidden relative group cursor-pointer ai-glow">
+<div class="absolute inset-0 z-0">
+<img alt="Tênis de corrida neon e acessórios" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500" data-alt="A dynamic, high-contrast product shot of neon green and black running shoes paired with sleek dark athletic accessories, set against a dark, moody background. The scene is illuminated by dramatic electric rim lighting that highlights the textures of the materials. The overall aesthetic is hyper-modern, energetic, and fits a premium neon-noir digital storefront style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSCAoq1Pl_e2rndsYNoiqJNsmAwhXOxdTVpREU4vHxIINKz34X_mxehIKGx9FFKxLLyS7EDYPsHwmjltaWH43iysnnIMc7xXvtwcrMm4xPOWqNTNJljl-VtY3AiuSv5iFuXgCy74vaWZ953OtgNiIfBd1nLqTSDj9N8RfiO_WXk4Q46HEASuTB-9PgAryYKHG1iF55ZhLznawn4PHAFokyKQcwWQXeoUehmPgviwOOyDnn5-jFbQr3wVNc7IA4P4oH1_cf4cCAmHM"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10"></div>
+<div class="absolute top-4 left-4 z-20 flex gap-2">
+<div class="bg-primary-fixed/20 border border-primary-fixed/50 backdrop-blur-md rounded-full px-3 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary-fixed" data-icon="bolt">bolt</span>
+<span class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider">IA Pick</span>
+</div>
+<div class="bg-surface-container/60 backdrop-blur-md border border-white/10 rounded-full px-3 py-1 flex items-center">
+<span class="font-label-sm text-label-sm text-on-surface">98% Match</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-6 z-20 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">Kit Performance Elite</h3>
+<p class="font-body-sm text-on-surface-variant">Combina com o corta-vento que você viu há 5 minutos.</p>
+</div>
+<button class="bg-primary-fixed text-on-primary-fixed font-label-bold text-label-bold px-6 py-3 rounded-full hover:bg-primary-fixed/90 transition-colors active:scale-95 whitespace-nowrap">
+                        Ver Kit • R$ 499
+                    </button>
+</div>
+</article>
+<!-- Secondary Pick -->
+<article class="glass-panel rounded-xl col-span-1 md:col-span-4 row-span-1 p-4 relative group flex flex-col justify-between hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-surface-container/60 border border-white/10 rounded-full px-2 py-1 flex items-center gap-1">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">Acessório</span>
+</div>
+<span class="font-label-bold text-label-bold text-primary-fixed">95% Match</span>
+</div>
+<div class="flex items-center gap-4 mt-auto">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 border border-white/10">
+<img alt="Óculos esportivo escuro com lentes reflexivas" class="w-full h-full object-cover" data-alt="Close-up product shot of sleek, futuristic dark athletic sunglasses with reflective lenses resting on a glossy black surface. Subtle neon green reflections dance across the lenses, suggesting a high-energy, modern environment. The lighting is moody and dramatic, adhering to a premium glassmorphism dark mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyRN9werl4r3mKnFDU-ubKiK7tciEH3VlN_a_NaEJY9PUCAL-WPSyUxYiSuxRriu1ukp7DUrLBSPCscMvo5w20XR02UcfSNmrB-M00Zd0Qf3Cuko35Kk56Ec0479cLO0qXXjjMzcB_ufiWSY-KWcCnazq6S8QDxX7ygv-nxaUMEFDAdi2UpKeXO4fNUm3AttjQI3eQCTqeOi_3JJBx9ntftbtcRkk7HzxYpSQkdk3yXhy3ti9-3RempVaSuoKx6UMUVqGaj3Dz4f4"/>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-primary mb-1">Óculos Aero Speed</h4>
+<p class="font-label-sm text-on-surface-variant mb-2">Ideal para corridas matinais</p>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-primary">R$ 129</span>
+<button class="w-8 h-8 rounded-full bg-surface-container-high border border-white/10 flex items-center justify-center text-primary-fixed hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Third Pick -->
+<article class="glass-panel rounded-xl col-span-1 md:col-span-4 row-span-1 p-4 relative group flex flex-col justify-between hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-surface-container/60 border border-white/10 rounded-full px-2 py-1 flex items-center gap-1">
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">Hidratação</span>
+</div>
+<span class="font-label-bold text-label-bold text-primary-fixed">92% Match</span>
+</div>
+<div class="flex items-center gap-4 mt-auto">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0 border border-white/10">
+<img alt="Garrafa térmica preta matte" class="w-full h-full object-cover" data-alt="A matte black premium hydration flask standing upright against a dark, textured background. A single, sharp beam of cool white light cuts across the bottle, highlighting its sleek cylindrical design. The scene evokes a sense of high-performance gear suited for intense workouts, fitting the dark, energetic visual system perfectly." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7tJqIVtJgj6jacfMpleWsH203BSy-oUhVhj2SOgpqTVoPosCK5azxxgZSvOqTWRkiqYbHY0qKtGGMTfa0i2pQKlO72ALptrVH_ZLE2wB5QCkha0vrgb3m0sKVo9_GZrS0ExwO-ePf92S6Mh_5j9OegE436PfxFxVR7cXgF_rFDWnZ2FzekpS4pKXXnov2LoEFCFZeDfnTAsNOy8Ev_XMbnKxazTkg6b4RJ1w85qRAoBFRQfa3R7AAf0XJjTDduS1vhr19i-O8dGs"/>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-primary mb-1">Flask Térmico 500ml</h4>
+<p class="font-label-sm text-on-surface-variant mb-2">Mantém gelado por 12h</p>
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md text-primary">R$ 89</span>
+<button class="w-8 h-8 rounded-full bg-surface-container-high border border-white/10 flex items-center justify-center text-primary-fixed hover:bg-primary-fixed hover:text-on-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 pb-safe-area-bottom bg-background/40 backdrop-blur-3xl border-t border-white/10 shadow-none flex justify-around items-center h-16">
+<button class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant/60 hover:text-primary-fixed/80 active:scale-90 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-primary-fixed scale-110 transition-transform active:scale-90 duration-150">
+<span class="material-symbols-outlined" data-icon="search" style="font-variation-settings: 'FILL' 1;">search</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant/60 hover:text-primary-fixed/80 active:scale-90 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant/60 hover:text-primary-fixed/80 active:scale-90 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</nav>
+</body></html>

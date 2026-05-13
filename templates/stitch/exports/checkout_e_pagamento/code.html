@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Runner's Xchange - Secure Payment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;0,900;1,900&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline": "#8a947a",
+                        "primary-container": "#a0fb00",
+                        "surface-bright": "#353b2c",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "primary": "#ffffff",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-primary": "#1f3700",
+                        "on-error-container": "#ffdad6",
+                        "background": "#101508",
+                        "tertiary": "#ffffff",
+                        "primary-fixed-dim": "#8cdc00",
+                        "on-primary-fixed": "#102000",
+                        "inverse-surface": "#dfe5cf",
+                        "secondary-container": "#4a4949",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-primary-fixed-variant": "#304f00",
+                        "on-primary-container": "#457000",
+                        "on-background": "#dfe5cf",
+                        "inverse-on-surface": "#2c3224",
+                        "surface-container": "#1c2114",
+                        "on-secondary": "#313030",
+                        "on-surface": "#dfe5cf",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-tertiary": "#2f3131",
+                        "surface-dim": "#101508",
+                        "on-surface-variant": "#c0caad",
+                        "tertiary-container": "#e2e2e2",
+                        "on-tertiary-container": "#636565",
+                        "outline-variant": "#414a34",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-secondary-fixed-variant": "#474646",
+                        "surface": "#101508",
+                        "surface-tint": "#8cdc00",
+                        "error": "#ffb4ab",
+                        "surface-container-high": "#262c1e",
+                        "on-error": "#690005",
+                        "inverse-primary": "#416900",
+                        "surface-container-highest": "#313728",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "surface-container-lowest": "#0a1005",
+                        "primary-fixed": "#a0fb00",
+                        "on-secondary-container": "#bab8b7",
+                        "secondary": "#c8c6c5",
+                        "error-container": "#93000a",
+                        "surface-container-low": "#181d10",
+                        "surface-variant": "#313728"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "unit": "4px",
+                        "safe-area-bottom": "32px",
+                        "margin-mobile": "16px",
+                        "gutter": "12px",
+                        "margin-desktop": "32px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "label-bold": ["Inter"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "label-sm": ["Inter"]
+                    },
+                    fontSize: {
+                        "body-lg": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "label-bold": ["14px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }]
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(28, 33, 20, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(160, 251, 0, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen relative overflow-x-hidden pb-32">
+<!-- Ambient Background Texture / Video Placeholder -->
+<div class="fixed inset-0 z-0 pointer-events-none opacity-40 mix-blend-screen" data-alt="Abstract, dark energetic background representing motion and speed. Soft, blurred streaks of electric lime and deep forest greens streaking across a pitch-black canvas, suggesting a high-speed run at night. The lighting is moody, cinematic, and neon-noir, with subtle grain to enhance the modern, electric aesthetic. Deep shadows contrast with vibrant, glowing highlights." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAmQlUPlzY8nlWCbK9-cgxi8jKANAijWR8iptCSx_slx-biYT8wdNvhcTlMMgpIMQbz4SWYCTHxBBTlcF0456qdLAJuwZk68QfxJSi3OtLJK3a5FYTVMRWS2lUxdYJEm-v76c5tZQmSc7zuo3oAKXALA_a43LDv0JvIFUCzy2LGK57Gn8gAqnyTTXNlkuusILamrmbyZgWdnEQmKjz6bq7IG_emn1b6hOEngGFh6NzPV2D-0KUyrY1Cj0iTZ6PdWp5zwxi1B-ZR9U'); background-size: cover; background-position: center;">
+</div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/15 shadow-none flex items-center justify-between px-margin-mobile h-16 transition-all duration-200">
+<button class="text-primary-fixed hover:opacity-80 transition-opacity active:scale-95 duration-200 p-2 -ml-2 rounded-full hover:bg-white/5">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-primary-fixed tracking-tight">Secure Payment</h1>
+<div class="w-10"></div> <!-- Spacer for alignment -->
+</header>
+<!-- Main Content Canvas -->
+<main class="relative z-10 pt-24 px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto pb-safe-area-bottom">
+<!-- Progress Indicator -->
+<div class="mb-8 flex items-center justify-between relative">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-surface-container-high rounded-full z-0"></div>
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-primary-fixed rounded-full z-0" style="width: 100%;"></div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-background flex items-center justify-center font-label-bold text-label-bold mb-2">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary-fixed">Cart</span>
+</div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-background flex items-center justify-center font-label-bold text-label-bold mb-2">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary-fixed">Shipping</span>
+</div>
+<div class="relative z-10 flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-background flex items-center justify-center font-label-bold text-label-bold mb-2 neon-glow">
+                    3
+                </div>
+<span class="font-label-sm text-label-sm text-primary-fixed">Payment</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Left Column: Shipping & Payment Details -->
+<div class="md:col-span-7 space-y-6">
+<!-- Shipping Address Section -->
+<section class="glass-panel rounded-xl p-6">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-body-lg text-body-lg text-primary font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">location_on</span>
+                            Shipping Address
+                        </h2>
+<button class="font-label-bold text-label-bold text-primary-fixed hover:opacity-80 transition-opacity">Edit</button>
+</div>
+<div class="bg-surface-container/50 rounded-lg p-4 border border-white/5">
+<p class="font-body-md text-body-md text-on-surface font-semibold mb-1">Banu Elson</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            1234 High Velocity Way, Apt 4B<br/>
+                            Neo Tokyo, NT 90210<br/>
+                            United States
+                        </p>
+<p class="font-label-sm text-label-sm text-outline mt-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span>
+                            Standard Delivery (3-5 Business Days)
+                        </p>
+</div>
+</section>
+<!-- Payment Method Section -->
+<section class="glass-panel rounded-xl p-6">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-body-lg text-body-lg text-primary font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">credit_card</span>
+                            Payment Method
+                        </h2>
+</div>
+<!-- Virtual Card Representation -->
+<div class="relative w-full aspect-[1.586/1] rounded-xl overflow-hidden mb-6 p-6 flex flex-col justify-between" style="background: linear-gradient(135deg, #a0fb00 0%, #304f00 100%);">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay"></div>
+<div class="relative z-10 flex justify-between items-start">
+<span class="material-symbols-outlined text-background text-3xl">contactless</span>
+<div class="font-headline-md text-headline-md text-background tracking-tighter italic font-black">Xchange</div>
+</div>
+<div class="relative z-10">
+<p class="font-body-lg text-body-lg text-background/80 tracking-[0.2em] mb-2 font-mono">**** **** **** 4242</p>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-label-sm text-label-sm text-background/60 uppercase">Cardholder</p>
+<p class="font-label-bold text-label-bold text-background uppercase tracking-wide">Banu Elson</p>
+</div>
+<div class="text-right">
+<p class="font-label-sm text-label-sm text-background/60 uppercase">Expires</p>
+<p class="font-label-bold text-label-bold text-background font-mono">12/25</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Add New Payment Option -->
+<button class="w-full py-4 border border-dashed border-outline-variant rounded-lg flex items-center justify-center gap-2 text-on-surface-variant hover:text-primary hover:border-outline transition-colors font-label-bold text-label-bold">
+<span class="material-symbols-outlined">add</span>
+                        Add New Payment Method
+                    </button>
+</section>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="md:col-span-5">
+<section class="glass-panel rounded-xl p-6 sticky top-24">
+<h2 class="font-body-lg text-body-lg text-primary font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-outline">receipt_long</span>
+                        Order Summary
+                    </h2>
+<!-- Items List -->
+<div class="space-y-4 mb-6">
+<!-- Item 1 -->
+<div class="flex gap-4 items-center">
+<div class="w-16 h-16 rounded-lg bg-surface-container-high overflow-hidden shrink-0 relative">
+<img alt="Red Running Shoe" class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all" data-alt="Close up studio shot of a vibrant red running shoe with electric lime green laces, isolated against a pure dark background. High contrast, dramatic lighting emphasizing the texture of the mesh and the sleek aerodynamic curves of the sole. Modern athletic footwear aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh4iLR7oMKgONfyE3xPpxXhFI63ufolvz6bh7o2NQcLX7hOXDySen4Notlov-sxp52NedgjUzmedmmJJZlK1W4GIel4Wy_pFzGG3eLCWAgqvgyBaeNbX78zPfB29osJ-W6pSs918Bi66PDEJPKG3NvOvQchSq2rBGs7mZDwBYjxy98jjlWk1ho1oPf_hargtL7-3JTQ6Ud5OdGjYXBfpzXq9kO9oOJJ-XyDbu2mNSZpOjUPZpkgHCb3EWDPM8xboqA1ayomd36sgA"/>
+</div>
+<div class="flex-1">
+<h3 class="font-label-bold text-label-bold text-on-surface">AeroPulse Pro X1</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Size 10 • Crimson/Neon</p>
+</div>
+<p class="font-body-md text-body-md text-primary font-semibold">$185.00</p>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-4 items-center">
+<div class="w-16 h-16 rounded-lg bg-surface-container-high overflow-hidden shrink-0 relative">
+<img alt="Running Jacket" class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all" data-alt="Flat lay photograph of a sleek, matte black windbreaker running jacket folded neatly on a dark slate surface. Subtle reflective silver trims and a small electric lime logo are visible. Cinematic, low-key lighting highlighting the technical fabric texture. Premium activewear aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArDG4FLbheejH57G93EvUly1ivSJTfZIfRiTB-5YhhVwTHhZ0G7iyes96Mpb7MMFnrxAz9U1dBnPqWzZW_3o8_5NUGUzyKqeskC4bCB-fd6HUlTc4e2vBq8VUixwFs9w2uBRVSFcZChbdZT2_IJ9xO2wYQwmochN6I84sFoSgguSfhmstnc1yFdxzkMXuzgLUXXS0yjLkQaSXydiTsnMzDPRwEUrCdXAzR3ky-TUH0QGrhfDNU14nnqr_vGs08736k4BN-ux7KWqU"/>
+</div>
+<div class="flex-1">
+<h3 class="font-label-bold text-label-bold text-on-surface">Nocturne Windshell</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Size M • Stealth Black</p>
+</div>
+<p class="font-body-md text-body-md text-primary font-semibold">$120.00</p>
+</div>
+</div>
+<hr class="border-white/10 mb-6"/>
+<!-- Totals -->
+<div class="space-y-3 mb-8">
+<div class="flex justify-between font-body-md text-body-md text-on-surface-variant">
+<span>Subtotal (2 items)</span>
+<span>$305.00</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md text-on-surface-variant">
+<span>Shipping</span>
+<span>$0.00</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md text-on-surface-variant">
+<span>Estimated Tax</span>
+<span>$24.40</span>
+</div>
+<div class="flex justify-between font-headline-md text-headline-md text-primary pt-3 border-t border-white/10">
+<span>Total</span>
+<span>$329.40</span>
+</div>
+</div>
+<!-- Pay Now Action -->
+<button class="w-full bg-primary-fixed text-background py-4 rounded-full font-label-bold text-label-bold tracking-wide flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all duration-200 neon-glow">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lock</span>
+                        Pay Now
+                    </button>
+<p class="text-center font-label-sm text-label-sm text-outline mt-4">
+                        Payments are encrypted and secure.
+                    </p>
+</section>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detalhes do Produto</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Montserrat:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#181d10",
+                    "surface-container-lowest": "#0a1005",
+                    "on-surface-variant": "#c0caad",
+                    "primary-fixed": "#a0fb00",
+                    "on-primary-container": "#457000",
+                    "primary-fixed-dim": "#8cdc00",
+                    "inverse-on-surface": "#2c3224",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "inverse-surface": "#dfe5cf",
+                    "on-secondary": "#313030",
+                    "surface-bright": "#353b2c",
+                    "tertiary-container": "#e2e2e2",
+                    "error": "#ffb4ab",
+                    "tertiary": "#ffffff",
+                    "surface": "#101508",
+                    "primary-container": "#a0fb00",
+                    "background": "#101508",
+                    "on-primary": "#1f3700",
+                    "on-tertiary": "#2f3131",
+                    "on-secondary-container": "#bab8b7",
+                    "surface-tint": "#8cdc00",
+                    "outline-variant": "#414a34",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "primary": "#ffffff",
+                    "surface-container-highest": "#313728",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-tertiary-container": "#636565",
+                    "on-secondary-fixed-variant": "#474646",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "inverse-primary": "#416900",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "error-container": "#93000a",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-high": "#262c1e",
+                    "on-surface": "#dfe5cf",
+                    "secondary": "#c8c6c5",
+                    "surface-dim": "#101508",
+                    "outline": "#8a947a",
+                    "on-error": "#690005",
+                    "surface-container": "#1c2114",
+                    "tertiary-fixed": "#e2e2e2",
+                    "on-primary-fixed-variant": "#304f00",
+                    "surface-variant": "#313728",
+                    "secondary-container": "#4a4949",
+                    "on-background": "#dfe5cf",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "on-primary-fixed": "#102000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "32px",
+                    "safe-area-bottom": "32px",
+                    "margin-mobile": "16px",
+                    "gutter": "12px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "label-bold": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                    "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                    "label-bold": ["14px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                    "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                    "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                    "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                    "body-lg": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                    "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Custom styles for Material Symbols and utilities */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Hide scrollbar for horizontal scrolling areas */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen overflow-hidden flex flex-col relative antialiased">
+<!-- Background Video Simulation Layer -->
+<div class="absolute inset-0 z-0 bg-surface-container-lowest">
+<img alt="Fashion model" class="w-full h-full object-cover opacity-80" data-alt="A vibrant, vertical mobile video frame capturing a stylish Gen-Z fashion model posing dynamically on an urban rooftop at twilight. The scene embodies a high-velocity, neon-noir aesthetic, characterized by a deep, light-absorbing dark background that makes the model's outfit pop. Subtle electric lime and vivid purple rim lights illuminate the edges of the clothing, implying movement and energy. The lighting is high-contrast and hyper-modern, drawing full attention to the texture and drape of the streetwear apparel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7vlmtaskg8NVEQ7tqcBm1kLUJ7J0tghVhJ8-KQvNlo-AMMi0IDT6CGQX1pKPOs75KZVS_Py8olipEkWdcf5fhpJ51VoGedmTShCPfV3NkFQ7Rej3mipbSK6osQWWu3MU15ZK-p_zygPqSb6BF3fHhcCSplP-Xd1CgfL4M8FNHifIXw-idj10_whFxzIVacn9c05rBImxlWBisZurOp8yBHERda-2Z4cerhIMQTVq5cIoQytDJvgQijcTfGjI_LDZC3LK8HPTV_8k"/>
+<!-- Dark gradient overlay to ensure text legibility at the top -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent"></div>
+</div>
+<!-- Top Actions (Focused View - No Shared Nav) -->
+<div class="absolute top-0 left-0 right-0 z-20 flex justify-between items-center p-margin-mobile pt-8">
+<button class="flex items-center justify-center size-10 rounded-full bg-surface/30 backdrop-blur-md border border-white/15 text-white shadow-lg">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div class="flex gap-3">
+<button class="flex items-center justify-center size-10 rounded-full bg-surface/30 backdrop-blur-md border border-white/15 text-white shadow-lg">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="flex items-center justify-center size-10 rounded-full bg-surface/30 backdrop-blur-md border border-white/15 text-white shadow-lg">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+</div>
+</div>
+<!-- Live Badge Overlay (Floating element) -->
+<div class="absolute top-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 px-3 py-1 bg-surface/60 backdrop-blur-md rounded-full border border-white/15">
+<div class="size-2 rounded-full bg-error animate-pulse"></div>
+<span class="font-label-sm text-primary-fixed uppercase tracking-wider">Ao Vivo</span>
+</div>
+<!-- Main Content Area (Pushes overlay to bottom) -->
+<div class="flex-1 z-10"></div>
+<!-- Product Details Overlay (Bottom Sheet) -->
+<div class="relative z-20 w-full bg-[#101508]/80 backdrop-blur-[40px] border-t border-white/15 rounded-t-[24px] pb-safe-area-bottom shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+<!-- Drag Handle -->
+<div class="flex justify-center w-full pt-4 pb-2">
+<div class="w-12 h-1 bg-outline-variant rounded-full"></div>
+</div>
+<div class="px-margin-mobile pb-6 flex flex-col gap-6">
+<!-- Header: Title, Price, Reviews -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-start gap-4">
+<h1 class="font-headline-md text-on-surface leading-tight">Jaqueta Corta-Vento <br/>Cyberpunk Edition</h1>
+<span class="font-headline-md text-primary-fixed shrink-0">R$ 299</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center text-primary-fixed">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star_half</span>
+</div>
+<span class="font-label-sm text-on-surface-variant">4.8 (124 avaliações)</span>
+</div>
+</div>
+<!-- Separator -->
+<div class="h-px w-full bg-outline-variant/50"></div>
+<!-- Size Selection -->
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<h3 class="font-label-bold text-on-surface">Tamanho</h3>
+<button class="font-label-sm text-primary-fixed underline decoration-primary-fixed/50 underline-offset-4">Guia de Medidas</button>
+</div>
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-1">
+<button class="flex items-center justify-center h-10 min-w-[3rem] px-4 rounded-full border border-outline font-label-bold text-on-surface hover:bg-surface-variant transition-colors">P</button>
+<button class="flex items-center justify-center h-10 min-w-[3rem] px-4 rounded-full border border-primary-fixed bg-primary-fixed/10 text-primary-fixed font-label-bold transition-colors">M</button>
+<button class="flex items-center justify-center h-10 min-w-[3rem] px-4 rounded-full border border-outline font-label-bold text-on-surface hover:bg-surface-variant transition-colors">G</button>
+<button class="flex items-center justify-center h-10 min-w-[3rem] px-4 rounded-full border border-outline font-label-bold text-on-surface hover:bg-surface-variant transition-colors">GG</button>
+</div>
+</div>
+<!-- Color Selection -->
+<div class="flex flex-col gap-3">
+<h3 class="font-label-bold text-on-surface">Cor: <span class="font-body-md text-on-surface-variant font-normal ml-1">Preto Carbono</span></h3>
+<div class="flex gap-4 items-center">
+<!-- Active Color -->
+<button class="relative size-10 rounded-full flex items-center justify-center p-0.5 border-2 border-primary-fixed">
+<div class="w-full h-full rounded-full bg-[#1c1c1c] shadow-inner"></div>
+</button>
+<!-- Inactive Colors -->
+<button class="relative size-10 rounded-full flex items-center justify-center p-0.5 border-2 border-transparent hover:border-outline transition-colors">
+<div class="w-full h-full rounded-full bg-[#e2e2e2] shadow-inner border border-outline-variant"></div>
+</button>
+<button class="relative size-10 rounded-full flex items-center justify-center p-0.5 border-2 border-transparent hover:border-outline transition-colors">
+<div class="w-full h-full rounded-full bg-[#457000] shadow-inner"></div>
+</button>
+</div>
+</div>
+<!-- Action Button -->
+<div class="pt-2">
+<button class="w-full bg-primary-fixed hover:bg-primary-fixed-dim text-on-primary-fixed h-14 rounded-full font-label-bold text-[16px] flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(160,251,0,0.2)]">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                    Adicionar ao Carrinho
+                </button>
+</div>
+</div>
+</div>
+</body></html>

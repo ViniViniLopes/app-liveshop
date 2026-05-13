@@ -1,0 +1,23 @@
+services:
+  liveshop-worker:
+    image: ghcr.io/your-org/liveshop-worker:latest
+    command: ["pnpm", "run", "start"]
+    restart: unless-stopped
+    env_file: ../../.env
+
+
+  mcp-server:
+    image: ghcr.io/your-org/liveshop-mcp:latest
+    restart: unless-stopped
+    env_file: ../../.env
+    ports:
+      - "127.0.0.1:8787:8787"
+
+  valkey:
+    image: valkey/valkey:7
+    restart: unless-stopped
+    volumes:
+      - valkey-data:/data
+
+volumes:
+  valkey-data:

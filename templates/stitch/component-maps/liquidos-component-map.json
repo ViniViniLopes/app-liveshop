@@ -1,0 +1,15 @@
+{
+  "root": "ShoppableMediaScreen",
+  "visual_language": "LiquidOS / Liquid Glass / Morphing Graphics",
+  "components": [
+    { "name": "MediaRenderer", "data": ["media_item.type", "media_item.embed_url", "media_item.source_url"] },
+    { "name": "ProductFloatingCard", "data": ["bling_product_id", "product_snapshot", "tracking_url"] },
+    { "name": "MorphCard", "states": ["collapsed", "expanded", "processing", "success"] },
+    { "name": "LiquidCheckout", "actions": ["open_checkout", "buy_now", "payment_success", "payment_failed"] },
+    { "name": "FloatingPip", "actions": ["pip_drag_start", "pip_snap"] },
+    { "name": "SocialActions", "actions": ["share_media", "save_product", "copy_affiliate_link"] }
+  ],
+  "supabase_events_table": "ui_action_events",
+  "tenant_branding_required": true,
+  "hardcoded_product_data_allowed": false
+}

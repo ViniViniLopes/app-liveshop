@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Video Feed - Runner's Xchange</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Montserrat:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#4a4949",
+                        "on-tertiary": "#2f3131",
+                        "inverse-primary": "#416900",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "primary-container": "#a0fb00",
+                        "surface-tint": "#8cdc00",
+                        "secondary-fixed": "#e5e2e1",
+                        "primary-fixed-dim": "#8cdc00",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#262c1e",
+                        "on-tertiary-container": "#636565",
+                        "primary-fixed": "#a0fb00",
+                        "on-error": "#690005",
+                        "tertiary": "#ffffff",
+                        "surface-dim": "#101508",
+                        "on-primary-fixed-variant": "#304f00",
+                        "primary": "#ffffff",
+                        "outline-variant": "#414a34",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "inverse-surface": "#dfe5cf",
+                        "error-container": "#93000a",
+                        "outline": "#8a947a",
+                        "surface": "#101508",
+                        "inverse-on-surface": "#2c3224",
+                        "on-secondary-fixed-variant": "#474646",
+                        "secondary": "#c8c6c5",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-primary-fixed": "#102000",
+                        "surface-container-lowest": "#0a1005",
+                        "surface-container-highest": "#313728",
+                        "surface-bright": "#353b2c",
+                        "on-primary": "#1f3700",
+                        "background": "#101508",
+                        "surface-variant": "#313728",
+                        "surface-container": "#1c2114",
+                        "on-secondary-container": "#bab8b7",
+                        "on-primary-container": "#457000",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface-container-low": "#181d10",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-secondary": "#313030",
+                        "on-background": "#dfe5cf",
+                        "tertiary-container": "#e2e2e2",
+                        "on-surface": "#dfe5cf",
+                        "on-surface-variant": "#c0caad"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "gutter": "12px",
+                        "safe-area-bottom": "32px",
+                        "margin-desktop": "32px"
+                    },
+                    fontFamily: {
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "label-bold": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "body-md": ["Inter"]
+                    },
+                    fontSize: {
+                        "label-sm": ["12px", { lineHeight: "1.2", fontWeight: "500" }],
+                        "body-lg": ["18px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "800" }],
+                        "label-bold": ["14px", { lineHeight: "1.2", fontWeight: "700" }],
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "900" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "1.2", fontWeight: "800" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .glass-panel-heavy {
+            background: rgba(16, 21, 8, 0.4);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px #a0fb0044;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background h-screen w-full overflow-hidden font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Main Fullscreen Video Container -->
+<div class="relative w-full h-full">
+<!-- Video Background Placeholder -->
+<div class="absolute inset-0 w-full h-full bg-surface-container-high bg-cover bg-center" data-alt="A full-screen vertical video shot of a male model walking confidently down a city street. He is wearing a sharp, modern beige Oxford suit over a crisp white button-down shirt. The lighting is bright and natural, creating a high-end fashion editorial mood. The background is slightly blurred, emphasizing the sharp tailoring of the suit." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB22rYlwulp1zczLRxj6ZMOvI8ZwS9-0znKZxvMBSUiaawY29PLu-CkVWqKw_CCyaqAketFkd8e302_DQwC66C4J7TMHclQhIz_L_ji_68cXNZcSDtF2TNHkQkzQAQ-Tfk8DRRpkzfAxsJ-LyqLqbgdp26tQN_djrFVTswYyeaMXrknJ6o08_Fa4kUA7fLqrr0jOp985srC2QQ8YY_lZOxvqRCvODY-MuhhNcMAne5el-EujoVRNexFwbqLc0oqG2_QleTWHmOoH-w');">
+<!-- Gradient Overlay for better text readability -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80"></div>
+</div>
+<!-- Top App Bar (From JSON Component) -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/15 shadow-none flex items-center justify-between px-margin-mobile h-16 transition-all">
+<button class="text-primary-fixed hover:opacity-80 transition-opacity active:scale-95 duration-200 p-2 rounded-full glass-panel flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-display-lg text-primary-fixed italic tracking-tighter">Runner's Xchange</h1>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200 p-2 rounded-full glass-panel flex items-center justify-center">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="relative text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200 p-2 rounded-full glass-panel flex items-center justify-center">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute -top-1 -right-1 bg-primary-container text-on-primary-container font-label-sm text-label-sm w-5 h-5 rounded-full flex items-center justify-center border-2 border-surface-container-high">3</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="relative z-10 w-full h-full pt-16 pb-safe-area-bottom flex flex-col justify-end px-margin-mobile">
+<!-- Right Side Action Column -->
+<div class="absolute right-margin-mobile bottom-40 flex flex-col items-center gap-6 z-20">
+<!-- Creator Profile -->
+<div class="relative group cursor-pointer">
+<div class="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-primary-container to-surface-tint">
+<img alt="Creator profile" class="w-full h-full rounded-full object-cover border-2 border-background" data-alt="A close-up portrait of a stylish male fashion creator with a neat beard, looking directly at the camera. He is set against a dark background, reflecting a modern, premium aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOs5vuPj2_a-3V77efvSXzJaR7Lopu2V4f6TqssIIGtJ5YmPV7uMSISfD0EeFSX5rZUyoRwCRajRwccvF2JbDk1lEKSDiESR8NHtTLxdvyCpNyz5FYB2a7OctyhO5p_Z3lBZaY8fT9wbNPskj4M7W9zRKANj3O3W-Wf0svRFNa-sXiWKqWsnh-LZdIQPws87xTUtTEjPTutj7-H293rUvjZcvaoMaPu_cnCDo4MRSNVOdaasc_DMypekkcKwslDqxX83T61QaWA-U"/>
+</div>
+<button class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-6 h-6 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center border-2 border-background hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</div>
+<!-- Interaction Buttons -->
+<div class="flex flex-col items-center gap-1 group">
+<button class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-on-surface hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-[28px]">favorite</span>
+</button>
+<span class="font-label-bold text-label-bold text-on-surface shadow-black drop-shadow-md">12.4k</span>
+</div>
+<div class="flex flex-col items-center gap-1 group">
+<button class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-on-surface hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-[28px]">chat_bubble</span>
+</button>
+<span class="font-label-bold text-label-bold text-on-surface shadow-black drop-shadow-md">342</span>
+</div>
+<div class="flex flex-col items-center gap-1 group">
+<button class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-on-surface hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined text-[28px]">share</span>
+</button>
+<span class="font-label-bold text-label-bold text-on-surface shadow-black drop-shadow-md">Share</span>
+</div>
+</div>
+<!-- Bottom Overlay - Product Card -->
+<div class="w-full mb-20 z-20 px-2">
+<div class="glass-panel-heavy rounded-lg p-4 flex items-center gap-4 relative overflow-hidden group transition-colors duration-300">
+<!-- Product Image -->
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0 border border-white/10">
+<img alt="Terno Oxford" class="w-full h-full object-cover" data-alt="A close-up detail shot of the beige Oxford suit jacket featured in the main video." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1QtBtmy1fJtssLmxvNh69KabndN6zIU5mDLmBhO7lwzrzoFWx6e5pSv7AmkaPdcOS7zJsh4T6ePKTFKtIU5_JbI7FYEoG-QsKNnC60qSazjEIWo0R-2936G4_hUQF1KkZVk6sNalA-tI90QhT0XPf7w2qWzm0cyKyrTH6vJZ5Z8Uu4QdyygbHs8TJPdVTqDeq7anyx9R0N35tKVdzYP4HsCx-gt63cC5VUuCH4YYwmhlR2sRj_5ESRqKWFnLv7NiHlnyNkKUDXbw"/>
+</div>
+<!-- Product Info -->
+<div class="flex-1 flex flex-col justify-center overflow-hidden">
+<h2 class="font-headline-md text-headline-md text-on-surface leading-tight truncate">Terno Oxford</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-snug">runner high performance</p>
+<div class="flex flex-col mt-1">
+<span class="font-label-bold text-label-bold text-primary-fixed block">em</span>
+<span class="font-label-bold text-label-bold text-primary-fixed block">estoque</span>
+</div>
+</div>
+<!-- Add Button -->
+<button class="absolute top-4 right-4 w-10 h-10 bg-primary-container text-on-primary-container rounded-lg flex items-center justify-center neon-glow hover:bg-surface-tint transition-colors active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+<!-- Progress Bar -->
+<div class="absolute bottom-2 left-4 right-4 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-1/3"></div>
+</div>
+</div>
+</div>
+<!-- Audio Indicator -->
+<div class="absolute bottom-24 left-margin-mobile flex items-center gap-2 glass-panel px-3 py-1.5 rounded-full z-20">
+<span class="material-symbols-outlined text-on-surface text-[16px] animate-pulse">music_note</span>
+<span class="font-label-sm text-label-sm text-on-surface truncate max-w-[120px]">Original Sound - Fashion Week</span>
+</div>
+</main>
+<!-- Bottom Navigation Bar (From JSON Component) -->
+<nav class="fixed bottom-0 w-full z-50 pb-safe-area-bottom bg-background/40 backdrop-blur-3xl border-t border-white/10 shadow-none flex justify-around items-center h-16 md:hidden">
+<button class="flex flex-col items-center justify-center w-full h-full text-primary-fixed scale-110 transition-transform active:scale-90 duration-150 group">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant/60 hover:text-primary-fixed/80 active:scale-90 transition-all duration-150 group">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-label-sm mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant/60 hover:text-primary-fixed/80 active:scale-90 transition-all duration-150 group relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-label-sm text-label-sm mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Cart</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-on-surface-variant/60 hover:text-primary-fixed/80 active:scale-90 transition-all duration-150 group">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1 opacity-0 group-hover:opacity-100 transition-opacity">Profile</span>
+</button>
+</nav>
+</div>
+</body></html>

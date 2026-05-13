@@ -1,0 +1,35 @@
+{
+  "name": "@liveshop/mobile",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "expo": "latest",
+    "react": "latest",
+    "react-native": "latest",
+    "react-native-reanimated": "latest",
+    "react-native-gesture-handler": "latest",
+    "expo-router": "latest",
+    "@supabase/supabase-js": "latest",
+    "@react-native-async-storage/async-storage": "latest",
+    "expo-notifications": "latest",
+    "expo-device": "latest",
+    "expo-constants": "latest",
+    "expo-av": "latest",
+    "lucide-react-native": "latest",
+    "@liveshop/database": "workspace:*",
+    "@liveshop/liquidos-ui": "workspace:*",
+    "@liveshop/branding": "workspace:*"
+  },
+  "devDependencies": {
+    "@babel/core": "latest",
+    "@types/react": "latest",
+    "typescript": "latest"
+  }
+}

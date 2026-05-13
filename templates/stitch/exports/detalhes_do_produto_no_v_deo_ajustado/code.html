@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Runner's Xchange - Product Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Montserrat:ital,wght@0,700;0,800;0,900;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        
+        .dark .glass-panel {
+            background: rgba(24, 29, 16, 0.65);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .gradient-top {
+            background: linear-gradient(180deg, rgba(160, 251, 0, 0.4) 0%, rgba(24, 29, 16, 0) 100%);
+        }
+
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(160, 251, 0, 0.3);
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #a0fb00;
+            border-radius: 4px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#4a4949",
+                        "on-tertiary": "#2f3131",
+                        "inverse-primary": "#416900",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "primary-container": "#a0fb00",
+                        "surface-tint": "#8cdc00",
+                        "secondary-fixed": "#e5e2e1",
+                        "primary-fixed-dim": "#8cdc00",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#262c1e",
+                        "on-tertiary-container": "#636565",
+                        "primary-fixed": "#a0fb00",
+                        "on-error": "#690005",
+                        "tertiary": "#ffffff",
+                        "surface-dim": "#101508",
+                        "on-primary-fixed-variant": "#304f00",
+                        "primary": "#ffffff",
+                        "outline-variant": "#414a34",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "inverse-surface": "#dfe5cf",
+                        "error-container": "#93000a",
+                        "outline": "#8a947a",
+                        "surface": "#101508",
+                        "inverse-on-surface": "#2c3224",
+                        "on-secondary-fixed-variant": "#474646",
+                        "secondary": "#c8c6c5",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-primary-fixed": "#102000",
+                        "surface-container-lowest": "#0a1005",
+                        "surface-container-highest": "#313728",
+                        "surface-bright": "#353b2c",
+                        "on-primary": "#1f3700",
+                        "background": "#101508",
+                        "surface-variant": "#313728",
+                        "surface-container": "#1c2114",
+                        "on-secondary-container": "#bab8b7",
+                        "on-primary-container": "#457000",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface-container-low": "#181d10",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-secondary": "#313030",
+                        "on-background": "#dfe5cf",
+                        "tertiary-container": "#e2e2e2",
+                        "on-surface": "#dfe5cf",
+                        "on-surface-variant": "#c0caad"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "gutter": "12px",
+                        "safe-area-bottom": "32px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "label-bold": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "label-bold": ["14px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background antialiased h-screen w-full overflow-hidden flex flex-col relative selection:bg-primary-container selection:text-on-primary-container">
+<!-- Background Video Layer (Simulated with Image) -->
+<div class="absolute inset-0 z-0">
+<img alt="Background Video" class="w-full h-full object-cover" data-alt="A dynamic full-screen vertical video still showing a stylish male model walking in a modern urban environment wearing a sleek beige tailored jacket over a crisp white shirt. The lighting is cinematic and natural, with a shallow depth of field blurring the background into a soft bokeh. The aesthetic is hyper-modern, premium, and energetic, fitting a fast-paced social commerce platform. Bright, neutral tones dominate the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ81_nOxIn013EpOwAa31jCJD7AhocwG7Fg0J13bJOnuOlKzokCMpbOTDH1SGSXseMSQrBk3o5P3-co7Tyfc2bXNJc3P0I1_XHCxUJtPYmN44uhe_hI9OiCgyr1m3K8Wo0cTPKDRYiuE3g8LdNtKgMz4nMcGNGPw8pfAjeVS2UkAow7FBkQugHSL9fp17NbgTdC-3sXc08_CcFndE54WGihKr0D7vNjIxJNB478W0APpaxUqnQmQIbwff7PiIpo_2VnTtUBr-Gk2k"/>
+<!-- Subtle dark gradient overlay to ensure UI legibility -->
+<div class="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/90 mix-blend-multiply"></div>
+</div>
+<!-- Top Action Bar (Floating above video) -->
+<div class="relative z-40 w-full px-margin-mobile pt-12 flex justify-between items-start">
+<button class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back_ios_new</span>
+</button>
+<div class="flex flex-col items-center">
+<div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center mb-2 animate-pulse">
+<span class="material-symbols-outlined text-3xl text-primary-fixed" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<button class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-primary hover:text-error transition-colors active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-primary relative active:scale-95 transition-transform border border-white/10">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+<span class="absolute -top-1 -right-1 w-5 h-5 bg-primary-fixed rounded-full text-on-primary-fixed font-label-sm text-[10px] flex items-center justify-center font-bold">3</span>
+</button>
+</div>
+</div>
+<!-- Scrollable Bottom Sheet Area -->
+<div class="absolute bottom-0 left-0 w-full h-[760px] z-50 flex flex-col justify-end">
+<!-- Toggle / Drag Handle Indicator -->
+<div class="w-full flex justify-center mb-4 relative z-50">
+<button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-primary hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">expand_less</span>
+</button>
+</div>
+<!-- The Main Glass Card -->
+<div class="w-full h-full glass-panel flex flex-col relative overflow-hidden border-b-0 rounded-t-[3rem]">
+<!-- Neon Top Gradient -->
+<div class="absolute top-0 left-0 w-full h-32 gradient-top z-0 pointer-events-none opacity-80"></div>
+<!-- Drag Handle Down -->
+<div class="w-full flex justify-center py-2 absolute top-0 z-20">
+<div class="w-14 h-8 bg-primary-fixed rounded-b-3xl flex items-center justify-center shadow-[0_4px_12px_rgba(160,251,0,0.4)]"><span class="material-symbols-outlined text-on-primary-fixed text-xl">expand_more</span></div>
+</div>
+<!-- Content Container -->
+<div class="flex-1 overflow-y-auto custom-scrollbar px-margin-mobile pt-10 pb-32 relative z-10"><!-- Product Header -->
+<div class="flex justify-between items-start mb-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-1 tracking-tight">Roller Rabbit</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Vado Odelle Dress</p>
+<div class="flex items-center gap-2 mt-2">
+<div class="flex text-primary-fixed text-sm">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(320 Review)</span>
+</div>
+</div>
+<!-- Quantity Control -->
+<div class="flex flex-col items-end gap-1">
+<div class="flex items-center gap-3 glass-panel rounded-full px-2 py-1 border border-primary-fixed/30 bg-surface-container-highest/50">
+<button class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-primary hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="font-label-bold text-label-bold w-4 text-center">1</span>
+<button class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-bold tracking-tight lowercase">em estoque</span>
+</div>
+</div>
+<!-- Description Section -->
+<div class="mt-4">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Description</h2>
+<p class="font-body-md text-sm text-on-surface leading-relaxed opacity-90">
+        Get a little lift from these Sam Edelman sandals featuring ruched straps and leather lace-up ties, while a braided jute sole makes a fresh statement for summer.
+    </p>
+</div>
+<!-- Product Gallery Slider -->
+<div class="relative flex items-center gap-4 mt-8 px-2">
+<button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+</button>
+<div class="flex gap-3 overflow-hidden flex-1">
+<img class="w-[180px] h-[180px] rounded-2xl object-cover object-center" src="https://lh3.googleusercontent.com/aida/ADBb0ujBBoVj4yTzkgOknuL4TiLSGFZaa_LXWGWUVyuzWg2o4NTg5lMJvXQn8-cI3P-rNWHnLBEYibhMspIOibvwh7k4RQxIRHcxYhMu4C1ctABiBzjk49Z9eHl8Bm76rAaMikNUp76S6qhBH-2vN6c5t2WIbijApvtKdhSGppTKeLZL-LSjiiAiuFLNlVq06LPl8tTtX9N3IAcsDfpFVERHriiyKz4JFEUIHWGOiwDW43KzAM76q_3O80NkEH4lx_KETxAeFtDIlS3_" style="object-position: 50% 35%"/>
+<img class="w-[180px] h-[180px] rounded-2xl object-cover object-center shadow-lg" src="https://lh3.googleusercontent.com/aida/ADBb0ujBBoVj4yTzkgOknuL4TiLSGFZaa_LXWGWUVyuzWg2o4NTg5lMJvXQn8-cI3P-rNWHnLBEYibhMspIOibvwh7k4RQxIRHcxYhMu4C1ctABiBzjk49Z9eHl8Bm76rAaMikNUp76S6qhBH-2vN6c5t2WIbijApvtKdhSGppTKeLZL-LSjiiAiuFLNlVq06LPl8tTtX9N3IAcsDfpFVERHriiyKz4JFEUIHWGOiwDW43KzAM76q_3O80NkEH4lx_KETxAeFtDIlS3_" style="object-position: 75% 35%"/>
+</div>
+<button class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+<!-- Size Selection -->
+<div class="mt-8 pb-4">
+<h2 class="font-headline-md text-headline-md text-primary mb-4 lowercase">tamanho</h2>
+<div class="flex gap-3">
+<div class="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center font-label-bold text-primary">S</div>
+<div class="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center font-label-bold text-primary">M</div>
+<div class="w-12 h-12 rounded-full bg-black flex items-center justify-center font-label-bold text-white">L</div>
+<div class="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center font-label-bold text-primary">XL</div>
+<div class="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center font-label-bold text-primary">XXL</div>
+</div>
+</div></div>
+<!-- Fixed Bottom Action Bar -->
+<div class="absolute bottom-0 left-0 w-full p-margin-mobile bg-transparent pb-8 z-50">
+<div class="flex justify-between items-end mb-6">
+<div class="flex flex-col">
+<span class="font-label-sm text-on-surface-variant/60 text-xs mb-1">Total Price</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant/60 line-through">$198.00</span>
+<span class="font-headline-lg text-[40px] text-primary leading-none">$127.00</span>
+</div>
+<button class="bg-primary-fixed text-on-primary-fixed px-8 py-4 rounded-2xl font-headline-md flex items-center gap-3 hover:bg-primary-fixed/90 transition-colors neon-glow active:scale-95 lowercase">
+<span class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-on-primary-fixed shadow-sm">
+<span class="material-symbols-outlined text-2xl">add</span>
+</span>
+            adicionar
+        </button>
+</div>
+<div class="text-center w-full mb-6">
+<span class="font-label-sm text-[11px] text-on-surface-variant/40 uppercase tracking-widest">Powered by <span class="text-on-surface-variant/60">RUNNER'S XCHANGE</span></span>
+</div>
+<!-- Progress Bar Indicator -->
+<div class="w-[80%] h-1.5 bg-white/10 mx-auto rounded-full overflow-hidden">
+<div class="w-[35%] h-full bg-primary-fixed"></div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

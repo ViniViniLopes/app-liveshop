@@ -1,0 +1,22 @@
+{
+  "name": "@liveshop/worker",
+  "version": "0.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@liveshop/database": "workspace:*",
+    "@liveshop/bling": "workspace:*",
+    "@liveshop/security": "workspace:*",
+    "dotenv": "latest",
+    "piscina": "latest"
+  },
+  "devDependencies": {
+    "typescript": "latest",
+    "tsx": "latest"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "screen_key": "shoppable_media_screen",
+  "components": [
+    { "key": "ShoppableMediaScreen", "platform": "shared", "tracks": ["view_media"] },
+    { "key": "MediaRenderer", "platform": "web", "tracks": [] },
+    { "key": "LiveBadge", "platform": "shared", "animation": "live_badge_pulse" },
+    { "key": "ProductFloatingCard", "platform": "shared", "tracks": ["view_product_card"], "animation": "card_enter" },
+    { "key": "BuyNowCTA", "platform": "shared", "action_type": "buy_now", "tracks": ["buy_now"] },
+    { "key": "SaveProductButton", "platform": "shared", "action_type": "save_product", "tracks": ["save_product"] },
+    { "key": "AffiliateShareButton", "platform": "shared", "action_type": "share_media", "tracks": ["share_media"] }
+  ],
+  "required_ids": ["tenant_id", "media_item_id", "bling_product_id"],
+  "optional_ids": ["live_session_id", "affiliate_id", "click_id"]
+}

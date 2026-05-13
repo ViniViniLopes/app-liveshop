@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Finalizar Compra</title>
+<!-- Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Montserrat:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config from Brand Anchors -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-low": "#181d10",
+                    "surface-container-lowest": "#0a1005",
+                    "on-surface-variant": "#c0caad",
+                    "primary-fixed": "#a0fb00",
+                    "on-primary-container": "#457000",
+                    "primary-fixed-dim": "#8cdc00",
+                    "inverse-on-surface": "#2c3224",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "inverse-surface": "#dfe5cf",
+                    "on-secondary": "#313030",
+                    "surface-bright": "#353b2c",
+                    "tertiary-container": "#e2e2e2",
+                    "error": "#ffb4ab",
+                    "tertiary": "#ffffff",
+                    "surface": "#101508",
+                    "primary-container": "#a0fb00",
+                    "background": "#101508",
+                    "on-primary": "#1f3700",
+                    "on-tertiary": "#2f3131",
+                    "on-secondary-container": "#bab8b7",
+                    "surface-tint": "#8cdc00",
+                    "outline-variant": "#414a34",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "primary": "#ffffff",
+                    "surface-container-highest": "#313728",
+                    "secondary-fixed": "#e5e2e1",
+                    "on-tertiary-container": "#636565",
+                    "on-secondary-fixed-variant": "#474646",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "inverse-primary": "#416900",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "error-container": "#93000a",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-high": "#262c1e",
+                    "on-surface": "#dfe5cf",
+                    "secondary": "#c8c6c5",
+                    "surface-dim": "#101508",
+                    "outline": "#8a947a",
+                    "on-error": "#690005",
+                    "surface-container": "#1c2114",
+                    "tertiary-fixed": "#e2e2e2",
+                    "on-primary-fixed-variant": "#304f00",
+                    "surface-variant": "#313728",
+                    "secondary-container": "#4a4949",
+                    "on-background": "#dfe5cf",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "on-primary-fixed": "#102000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "32px",
+                    "safe-area-bottom": "32px",
+                    "margin-mobile": "16px",
+                    "gutter": "12px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Montserrat"],
+                    "display-lg": ["Montserrat"],
+                    "label-bold": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "label-bold": ["14px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden min-h-screen pb-[120px]">
+<!-- SHARED COMPONENT START (Literal Include) -->
+<div class="relative flex h-auto w-full flex-col bg-[#1c240f] dark group/design-root overflow-x-hidden" style="--radio-dot-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(162,255,0)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3ccircle cx=%278%27 cy=%278%27 r=%273%27/%3e%3c/svg%3e'); font-family: &quot;Be Vietnam Pro&quot;, &quot;Noto Sans&quot;, sans-serif;">
+<div class="flex items-center bg-[#1c240f] p-4 pb-2 justify-between">
+<div class="text-white flex size-12 shrink-0 items-center" data-icon="ArrowLeft" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path>
+</svg>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-12">Finalizar Compra</h2>
+</div>
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Informações de Envio</h3>
+<div class="flex items-center gap-4 bg-[#1c240f] px-4 min-h-[72px] py-2 justify-between">
+<div class="flex items-center gap-4">
+<div class="text-white flex items-center justify-center rounded-lg bg-[#3b4b20] shrink-0 size-12" data-icon="MapPin" data-size="24px" data-weight="regular">
+<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"></path>
+</svg>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-white text-base font-medium leading-normal line-clamp-1">Endereço de Entrega</p>
+<p class="text-[#b6ce8d] text-sm font-normal leading-normal line-clamp-2">Rua das Flores, 123, São Paulo, SP</p>
+</div>
+</div>
+<div class="shrink-0">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 bg-[#3b4b20] text-white text-sm font-medium leading-normal w-fit">
+<span class="truncate">Editar</span>
+</button>
+</div>
+</div>
+<h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Método de Pagamento</h3>
+<div class="flex flex-col gap-3 p-4">
+<label class="flex items-center gap-4 rounded-xl border border-solid border-[#556b2e] p-[15px]">
+<input checked="" class="h-5 w-5 border-2 border-[#556b2e] bg-transparent text-transparent checked:border-[#a2ff00] checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-[#a2ff00]" name="7e85c012-4bbb-4b99-a637-6098c23cada3" type="radio"/>
+<div class="flex grow flex-col">
+<p class="text-white text-sm font-medium leading-normal">Cartão de Crédito (Final 1234)</p>
+<p class="text-[#b6ce8d] text-sm font-normal leading-normal">Visa</p>
+</div>
+</label>
+<label class="flex items-center gap-4 rounded-xl border border-solid border-[#556b2e] p-[15px]">
+<input class="h-5 w-5 border-2 border-[#556b2e] bg-transparent text-transparent checked:border-[#a2ff00] checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-[#a2ff00]" name="7e85c012-4bbb-4b99-a637-6098c23cada3" type="radio"/>
+<div class="flex grow flex-col">
+<p class="text-white text-sm font-medium leading-normal">Pix</p>
+<p class="text-[#b6ce8d] text-sm font-normal leading-normal">Aprovação imediata</p>
+</div>
+</label>
+<label class="flex items-center gap-4 rounded-xl border border-solid border-[#556b2e] p-[15px]">
+<input class="h-5 w-5 border-2 border-[#556b2e] bg-transparent text-transparent checked:border-[#a2ff00] checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-[#a2ff00]" name="7e85c012-4bbb-4b99-a637-6098c23cada3" type="radio"/>
+<div class="flex grow flex-col">
+<p class="text-white text-sm font-medium leading-normal">Boleto Bancário</p>
+<p class="text-[#b6ce8d] text-sm font-normal leading-normal">Vencimento em 3 dias</p>
+</div>
+</label>
+</div>
+<div class="h-5 bg-[#1c240f]"></div>
+</div>
+<!-- SHARED COMPONENT END -->
+<!-- Order Summary Section (New UI following theme) -->
+<main class="px-margin-mobile pb-safe-area-bottom w-full max-w-[600px] mx-auto">
+<h3 class="font-headline-md text-on-surface mb-4">Resumo do Pedido</h3>
+<div class="mb-6 rounded-DEFAULT bg-surface-container-high/40 border border-primary-fixed/20 p-4 relative overflow-hidden backdrop-blur-md">
+<div class="flex items-center gap-3 mb-3">
+<div class="size-10 rounded-full bg-primary-fixed/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-fixed" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+<div>
+<h4 class="font-headline-md text-[16px] text-white">Frete Grátis Liberado!</h4>
+<p class="font-body-md text-[13px] text-on-surface-variant">Gaste mais R$ 41,10 para ganhar um Brinde Exclusivo</p>
+</div>
+</div>
+<div class="relative h-3 w-full bg-surface-container-lowest rounded-full overflow-hidden mb-2">
+<div class="absolute top-0 left-0 h-full bg-primary-fixed rounded-full shadow-[0_0_12px_rgba(160,251,0,0.4)]" style="width: 85%;"></div>
+</div>
+<div class="flex justify-between items-center text-[11px] font-label-bold uppercase tracking-wider">
+<span class="text-primary-fixed">R$ 758,90</span>
+<div class="flex gap-4">
+<span class="text-on-surface-variant/60">R$ 800,00</span>
+<span class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">featured_seasonal_and_gifts</span>
+                GIFT
+            </span>
+</div>
+</div>
+<!-- Decorative background glow -->
+<div class="absolute -top-10 -right-10 size-24 bg-primary-fixed/5 blur-[40px] rounded-full"></div>
+</div><div class="flex flex-col gap-3 mb-6">
+<!-- Product Item 1 (Glassmorphism) -->
+<div class="flex gap-4 p-3 rounded-DEFAULT bg-surface-container-high/60 backdrop-blur-[20px] border border-white/10 shadow-sm relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
+<img class="w-20 h-20 rounded-md object-cover bg-surface-container-lowest shrink-0 z-10" data-alt="A sleek, futuristic sneaker with neon green accents floating in a dark, hyper-modern void. The lighting is moody, highlighting the textures of the shoe. The background is a deep, absorbing black, fitting a high-contrast Gen-Z cyberpunk aesthetic. The sneaker appears dynamic and energetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiKOByfdcvXDwuCasXfYjgvQBUzOjNiWmUa5CVKLwHyS2wtI1JH-3jNL704oUPLIK6rZhuG1rvtz5yusmJJ-E25uFsFTC9aNDi9-wvM-e9r1J8NYQXvOY5CiIO4RVC4zOFjNvtaSPauMP5-oyCFULQXzcZE4FjnLE2T9sW0kFqTc05s3yT_6jTdRtyHxL671zetLl5MTW0ovDMR_HPmc2gFyO3mc1nIANbgamOddJiwQuKyGkid7cQNmCWFVsynFLGol4n9Ti4DLA"/>
+<div class="flex flex-col justify-center flex-grow z-10">
+<p class="font-label-bold text-on-surface leading-tight mb-1">Tênis CyberX Runner</p>
+<p class="font-label-sm text-on-surface-variant mb-2">Tam: 41 | Cor: Neon / Black</p>
+<div class="flex items-center justify-between">
+<span class="font-label-bold text-primary-fixed">R$ 499,00</span>
+<span class="font-label-sm text-on-surface-variant px-2 py-1 rounded bg-surface-container-lowest">Qtd: 1</span>
+</div>
+</div>
+</div>
+<!-- Product Item 2 (Glassmorphism) -->
+<div class="flex gap-4 p-3 rounded-DEFAULT bg-surface-container-high/60 backdrop-blur-[20px] border border-white/10 shadow-sm relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
+<img class="w-20 h-20 rounded-md object-cover bg-surface-container-lowest shrink-0 z-10" data-alt="A trendy, oversized streetwear jacket displayed against a pitch-black backdrop. The jacket features subtle reflective panels that catch a harsh, cool rim light, creating a glowing outline effect. The scene embodies a neon-noir, electric urban style typical of modern youth fashion. The texture of the fabric is highly detailed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-aNzerBKajQqdmPSt8V7ggDTWXQHhDRlwEf6tIN4LJe4WnRsQ1lP3E1qcXD4DsvnUom_ETsit-Tt1MYWHARNE3dEaYpenrWA2Bu9m8urTt6c19TmN3fGZMkDZxKLALN0r4tepnIcpbjD8bABR_SEWWJKmIcTfqGiXQZQkjLUDPVqiQM8pR21EdgW_ftgZHGXqRH3yXWtnYgmAr5ZJbgKJ2UEf8O_0M4lwTusNvp1OMx4O7EfJ9PbZub1Qnfy73WdlcgR8J6_zxV0"/>
+<div class="flex flex-col justify-center flex-grow z-10">
+<p class="font-label-bold text-on-surface leading-tight mb-1">Jaqueta Reflective Urban</p>
+<p class="font-label-sm text-on-surface-variant mb-2">Tam: G | Cor: Silver</p>
+<div class="flex items-center justify-between">
+<span class="font-label-bold text-primary-fixed">R$ 259,90</span>
+<span class="font-label-sm text-on-surface-variant px-2 py-1 rounded bg-surface-container-lowest">Qtd: 1</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pricing Breakdown -->
+<div class="rounded-DEFAULT bg-surface-container/80 backdrop-blur-[10px] p-4 border border-outline-variant/30 flex flex-col gap-2">
+<div class="flex justify-between items-center font-body-md text-on-surface-variant">
+<span>Subtotal</span>
+<span>R$ 758,90</span>
+</div>
+<div class="flex justify-between items-center font-body-md text-on-surface-variant">
+<span>Frete Expresso</span>
+<span class="text-primary-fixed">Grátis</span>
+</div>
+<div class="flex justify-between items-center font-headline-md text-on-surface mt-2 pt-3 border-t border-outline-variant/50">
+<span>Total</span>
+<span>R$ 758,90</span>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Action Bar (High Conversion Focus) -->
+<div class="fixed bottom-0 left-0 w-full px-margin-mobile py-4 pb-safe-area-bottom bg-surface/80 backdrop-blur-[30px] border-t border-white/5 z-50 flex justify-center">
+<button class="w-full max-w-[600px] h-[56px] rounded-full bg-primary-fixed text-on-primary-fixed font-headline-md text-[18px] flex items-center justify-center gap-2 shadow-[0_0_24px_rgba(160,251,0,0.3)] hover:bg-primary-fixed-dim transition-colors relative overflow-hidden group">
+<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+<span class="z-10 flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">lock</span>
+                Pagar Agora
+            </span>
+</button>
+</div>
+</body></html>

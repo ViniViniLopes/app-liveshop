@@ -1,0 +1,54 @@
+version: "3.8"
+
+services:
+  liveshop-worker:
+    image: registry.hetzner.com/liveshop/worker:${IMAGE_TAG:-latest}
+    build:
+      context: ../..
+      dockerfile: apps/worker/Dockerfile
+    environment:
+      NODE_ENV: production
+      SUPABASE_URL: ${SUPABASE_URL}
+      SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY}
+      BLING_CLIENT_ID: ${BLING_CLIENT_ID}
+      BLING_CLIENT_SECRET: ${BLING_CLIENT_SECRET}
+      CLOUDFLARE_API_TOKEN: ${CLOUDFLARE_API_TOKEN}
+      CLOUDFLARE_ACCOUNT_ID: ${CLOUDFLARE_ACCOUNT_ID}
+      EXPO_ACCESS_TOKEN: ${EXPO_ACCESS_TOKEN}
+      WORKER_PORT: "3001"
+      JOB_POLL_INTERVAL_MS: "15000"
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
+    networks:
+      - liveshop_internal
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: start-first
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 128M
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  liveshop_internal:
+    external: true

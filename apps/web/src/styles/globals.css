@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --live-theme-color: rgba(163, 255, 0, 0.18);
+  --live-accent-color: #A3FF00;
+  --tenant-primary-color: #A3FF00;
+  --tenant-surface-glass: rgba(255, 255, 255, 0.10);
+}
+
+@layer components {
+  .liquid-glass {
+    @apply bg-[var(--live-theme-color)] backdrop-blur-[40px] saturate-[180%] border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.37)];
+  }
+
+  .liquid-safe-contrast {
+    @apply [text-shadow:0_1px_10px_rgba(0,0,0,0.45)];
+  }
+
+  .ios-blur {
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+  }
+}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Runner's Xchange - Live Shop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Montserrat:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#101508",
+                        "secondary-fixed": "#e5e2e1",
+                        "inverse-on-surface": "#2c3224",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "outline": "#8a947a",
+                        "tertiary-container": "#e2e2e2",
+                        "surface-container-lowest": "#0a1005",
+                        "on-background": "#dfe5cf",
+                        "tertiary": "#ffffff",
+                        "surface-bright": "#353b2c",
+                        "primary-fixed-dim": "#8cdc00",
+                        "surface-container-low": "#181d10",
+                        "surface-container": "#1c2114",
+                        "inverse-primary": "#416900",
+                        "error": "#ffb4ab",
+                        "surface": "#101508",
+                        "on-primary-fixed-variant": "#304f00",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-secondary-container": "#bab8b7",
+                        "primary-fixed": "#a0fb00",
+                        "surface-dim": "#101508",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-secondary": "#313030",
+                        "primary-container": "#a0fb00",
+                        "on-secondary-fixed-variant": "#474646",
+                        "secondary": "#c8c6c5",
+                        "surface-container-high": "#262c1e",
+                        "on-primary": "#1f3700",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-primary-fixed": "#102000",
+                        "secondary-container": "#4a4949",
+                        "outline-variant": "#414a34",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#c0caad",
+                        "surface-container-highest": "#313728",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "inverse-surface": "#dfe5cf",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-tertiary": "#2f3131",
+                        "surface-tint": "#8cdc00",
+                        "surface-variant": "#313728",
+                        "on-surface": "#dfe5cf",
+                        "on-tertiary-container": "#636565",
+                        "on-primary-container": "#457000",
+                        "primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "safe-area-bottom": "32px",
+                        "unit": "4px",
+                        "gutter": "12px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "label-bold": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "display-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "label-bold": ["14px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(28, 33, 20, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-overlay {
+            background: linear-gradient(to top, rgba(16, 21, 8, 0.9) 0%, rgba(16, 21, 8, 0) 100%);
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(160, 251, 0, 0.3);
+        }
+        .live-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 82, 82, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 82, 82, 0); }
+        }
+        /* Hide scrollbar for horizontal scroll areas */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased pb-[96px]">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/5 shadow-none flex items-center justify-between px-margin-mobile h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-display-lg text-[24px] text-primary-fixed italic tracking-tighter uppercase">Runner's Xchange</h1>
+</div>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+</header>
+<main class="pt-20 px-margin-mobile space-y-6">
+<!-- Search Bar -->
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+</div>
+<input class="w-full bg-surface-container-high border border-outline-variant rounded-full py-3 pl-12 pr-4 text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-1 focus:ring-primary-fixed focus:border-primary-fixed transition-all" placeholder="Search live drops, runners, gear..." type="text"/>
+</div>
+<!-- Hero Promo Slider -->
+<section class="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory">
+<!-- Promo 1 -->
+<div class="min-w-[85%] sm:min-w-[400px] snap-center relative rounded-[24px] overflow-hidden bg-surface-container h-48 flex-shrink-0">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity" data-alt="High-contrast dynamic shot of a person running with premium sneakers, glowing electric green accents, dark noir background, modern street style aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_DmCat0R9engSE8Qhbf-TjcR291KN40tm_EnpUTIQJAtXKyanz7yHX9v_YTAQ3Mo8siNCAd9j5rRgsFGVjSJIj3-i-XI72yRAXK-82rfG-kR2D_1-o9-uNGrF6Xwp_RqyjanogohKQamAaAUUSrAxyJBmzWxZeNgv2Z3TNi8pDoVKSEUToD7Qe3n9_JO30pUFJk-cjHF3BOxqFUKSCLPblGq5BQzlMLrY-zW-dqMZYk4iBrL0-whZKIzJuvWmMpal2l6TtRvGUyk"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent p-6 flex flex-col justify-center">
+<span class="font-label-bold text-label-bold text-primary-fixed uppercase tracking-wider mb-2">Flash Drop</span>
+<h2 class="font-headline-lg text-headline-lg text-tertiary mb-1">50% OFF</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Elite running gear today only.</p>
+<button class="bg-primary-fixed text-on-primary-fixed font-label-bold text-label-bold py-2 px-6 rounded-full w-max hover:bg-primary-fixed/90 transition-colors">
+                        Shop Now
+                    </button>
+</div>
+</div>
+<!-- Promo 2 -->
+<div class="min-w-[85%] sm:min-w-[400px] snap-center relative rounded-[24px] overflow-hidden bg-surface-container h-48 flex-shrink-0">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity" data-alt="Close up of high performance running shoe, dark moody lighting with neon green rim light, modern tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWL0idiUnkMnRApI-uODxdzsvvZntt4N-B1_8YXPux9OobPX4oJmo_vz0c_2fJ-ZoCrlorhfOmW0EFs6cZU2zzB2NrHVKbqjr1iFvdDl1KhJPUs1Y0PUiZz0e0ONR-4-dvYrwkiLvng29qiYFBRoEmHqjrNyyAPgJnciZN_yHG-ddjEWpBUGHArmZ3dJQVqe1T7szeeak_WduL-gDq8YFg0MPFAsHEik0rjNzbrskH6DvxguOj0UpQIuOjbyRXUXBb2NhhGaAyAos"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent p-6 flex flex-col justify-center">
+<span class="font-label-bold text-label-bold text-primary-fixed uppercase tracking-wider mb-2">New Arrival</span>
+<h2 class="font-headline-lg text-headline-lg text-tertiary mb-1">AXEL X</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">The new standard in speed.</p>
+<button class="bg-surface-container-highest text-on-surface font-label-bold text-label-bold py-2 px-6 rounded-full border border-white/10 w-max backdrop-blur-md">
+                        Explore
+                    </button>
+</div>
+</div>
+</section>
+<!-- Live Now Section -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline-md text-headline-md text-tertiary">Live Drops</h3>
+<span class="font-label-bold text-label-bold text-primary-fixed uppercase tracking-widest text-[10px]">View All</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Live Card 1 -->
+<div class="relative rounded-[24px] overflow-hidden aspect-[3/4] bg-surface-container">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Young energetic creator holding up a sneaker to camera, dark studio background, vibrant lighting, modern social commerce style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZOPCW2LkQbcPX2jYSsSGx3rzhNkrwwn4wbZ4JwpnTkkKP2WM8QOlcwnXMMgH7Ga4orjxkcE-2F2MQGEcuIM2MDOwSIOf04wP2PVEKpr-nnJ1PKr4KtFD7QaGLMMSalnGglGyi-q9UrGbxZg8afe7IifbYTC_dMjryrWL0OZmrRikntFqTzw7zEJp8Hor1KZj4HgU9LVaYmOtpA9Oistg0st-CWwlgpyCH1kSV3FlTLzZ3udUJFNJICAPma5LoQgw-6tDon4kwaD0"/>
+<div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md rounded-full px-3 py-1 flex items-center gap-1 border border-white/10">
+<div class="w-2 h-2 rounded-full bg-red-500 live-pulse"></div>
+<span class="font-label-sm text-[10px] text-tertiary uppercase tracking-wider font-bold">Live</span>
+</div>
+<div class="absolute top-3 right-3 bg-black/40 backdrop-blur-md rounded-full px-2 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">visibility</span>
+<span class="font-label-sm text-[10px] text-tertiary">1.2k</span>
+</div>
+<div class="absolute inset-x-0 bottom-0 glass-overlay p-4 pt-12">
+<p class="font-body-md text-[14px] text-tertiary font-medium line-clamp-2 mb-2">Reviewing the new Air Zoom prototypes</p>
+<div class="flex items-center justify-between">
+<span class="font-label-bold text-[14px] text-primary-fixed">$195.00</span>
+<button class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center neon-glow">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Live Card 2 -->
+<div class="relative rounded-[24px] overflow-hidden aspect-[3/4] bg-surface-container">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Urban runner showing off gear on street, dynamic angle, night time shot with neon accents, moody lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGhgJO2bN-8vq5OMnm2vpV0CLjtfaIRfAF1Dei8KfW7VDjPOjL-9gcHpHWX29kyaEQkspSYwx8N8ZvcmWcx6fnftQBuSUK4SAa1k5HR7VgqCbIQaY6mEff6IrkbDjZYV1KJmxgk757mMuloUfVgJGmufbi1PeMTddOTEDl92tNXDaA0C7IldydJDhibkcR8M0JZDcut8d0j_5lyfEmgDTOzDB4rtIrfrSmMj2TMJd-8IpnLLBddJUmgn7wsobV_MhBLwaRrm6dy3Y"/>
+<div class="absolute top-3 left-3 bg-black/60 backdrop-blur-md rounded-full px-3 py-1 flex items-center gap-1 border border-white/10">
+<div class="w-2 h-2 rounded-full bg-red-500 live-pulse"></div>
+<span class="font-label-sm text-[10px] text-tertiary uppercase tracking-wider font-bold">Live</span>
+</div>
+<div class="absolute top-3 right-3 bg-black/40 backdrop-blur-md rounded-full px-2 py-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">visibility</span>
+<span class="font-label-sm text-[10px] text-tertiary">856</span>
+</div>
+<div class="absolute inset-x-0 bottom-0 glass-overlay p-4 pt-12">
+<p class="font-body-md text-[14px] text-tertiary font-medium line-clamp-2 mb-2">Street style check &amp; custom drops</p>
+<div class="flex items-center justify-between">
+<span class="font-label-bold text-[14px] text-primary-fixed">$245.00</span>
+<button class="w-8 h-8 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center neon-glow">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 pb-safe-area-bottom bg-background/80 backdrop-blur-3xl border-t border-white/5 shadow-none flex justify-around items-center h-16 w-full">
+<button class="text-primary-fixed scale-110 transition-transform active:scale-90 duration-150 flex flex-col items-center justify-center w-12 h-12">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+</button>
+<button class="text-on-surface-variant/60 hover:text-primary-fixed/80 transition-colors active:scale-90 duration-150 flex flex-col items-center justify-center w-12 h-12">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+<button class="text-on-surface-variant/60 hover:text-primary-fixed/80 transition-colors active:scale-90 duration-150 flex flex-col items-center justify-center w-12 h-12 relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary-fixed rounded-full"></span>
+</button>
+<button class="text-on-surface-variant/60 hover:text-primary-fixed/80 transition-colors active:scale-90 duration-150 flex flex-col items-center justify-center w-12 h-12">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+</button>
+</nav>
+</body></html>

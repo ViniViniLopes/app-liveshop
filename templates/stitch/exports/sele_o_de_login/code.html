@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - Runner's Xchange</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#a0fb00",
+                        "surface-container-lowest": "#0a1005",
+                        "on-surface-variant": "#c0caad",
+                        "surface-container-low": "#181d10",
+                        "on-secondary": "#313030",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "inverse-surface": "#dfe5cf",
+                        "on-primary-container": "#457000",
+                        "primary-fixed-dim": "#8cdc00",
+                        "inverse-on-surface": "#2c3224",
+                        "surface": "#101508",
+                        "primary-container": "#a0fb00",
+                        "background": "#101508",
+                        "on-primary": "#1f3700",
+                        "tertiary": "#ffffff",
+                        "surface-bright": "#353b2c",
+                        "tertiary-container": "#e2e2e2",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#bab8b7",
+                        "on-tertiary": "#2f3131",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#474646",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "inverse-primary": "#416900",
+                        "primary": "#ffffff",
+                        "surface-container-highest": "#313728",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-tertiary-container": "#636565",
+                        "surface-tint": "#8cdc00",
+                        "outline-variant": "#414a34",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "secondary": "#c8c6c5",
+                        "surface-container-high": "#262c1e",
+                        "on-surface": "#dfe5cf",
+                        "on-error-container": "#ffdad6",
+                        "on-error": "#690005",
+                        "surface-container": "#1c2114",
+                        "outline": "#8a947a",
+                        "surface-dim": "#101508",
+                        "on-primary-fixed": "#102000",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "secondary-container": "#4a4949",
+                        "on-background": "#dfe5cf",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-primary-fixed-variant": "#304f00",
+                        "surface-variant": "#313728"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "unit": "4px",
+                        "safe-area-bottom": "32px",
+                        "margin-mobile": "16px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "label-bold": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900" }],
+                        "label-bold": ["14px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen relative overflow-hidden flex flex-col items-center justify-center">
+<!-- Blurred Background Video Context -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-60" data-alt="A dynamic shot of a runner's sneakers mid-stride on urban pavement, capturing high energy and motion. The image should have a slightly dark, cinematic grading suitable for a neon-noir aesthetic, serving as a moody background for a high-contrast electric green UI. The focus should be on the movement and the athletic footwear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMRhglso9DYKsXLX2MO3fWpCCmyfu1rNy_w8-fvzv56eHLadRi05wEaOaYzWAJ-JMg3ZTUeE1rEghFNWk1WXxcEUBiS9QSLrXXEg-2zL2LVniwCmct2G1LPe7xx6cfyyc0aMD3iVxX2-7Nb-KB_BtJTqSSXKoZWtP3595WkIY4lqaTUz78tfZhRcNZSW27W7i88rfMFIGIEgGP6cdDEOz8XDJMcjR9r_iMTC4U5ALuw-F2kZkC6N0me_tOeRMzPYe8Hlpq2KH3bww"/>
+<div class="absolute inset-0 bg-background/40 backdrop-blur-sm"></div>
+</div>
+<!-- Login Container -->
+<div class="z-10 w-full max-w-md px-margin-mobile mt-auto mb-safe-area-bottom pt-[176px]">
+<!-- Glassmorphism Card -->
+<div class="bg-surface-container-low/60 backdrop-blur-2xl rounded-[40px] p-8 pb-12 flex flex-col items-center border border-white/10 shadow-2xl relative overflow-hidden">
+<!-- Top Drag Handle / Decorative Graphic -->
+<div class="absolute top-0 w-full flex justify-center -translate-y-1/2">
+<div class="w-20 h-20 bg-primary-fixed rounded-full blur-[40px] opacity-20"></div>
+<div class="absolute top-4 w-12 h-1.5 bg-white/20 rounded-full"></div>
+</div>
+<!-- Back & Profile (Top Row Context) -->
+<div class="w-full flex justify-between items-center mb-8">
+<button class="w-10 h-10 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-xl">arrow_back_ios_new</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-xl">person</span>
+</button>
+</div>
+<!-- Progress Tracker Indicator -->
+<div class="flex items-center space-x-4 mb-8">
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-surface-container-lowest flex items-center justify-center shadow-[0_0_15px_rgba(160,251,0,0.4)]">
+<span class="material-symbols-outlined text-sm font-bold" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-white/20 border border-white/30 text-white flex items-center justify-center backdrop-blur-md">
+<span class="material-symbols-outlined text-sm">location_on</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-white/20 border border-white/30 text-white flex items-center justify-center backdrop-blur-md">
+<span class="material-symbols-outlined text-sm">credit_card</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-white/20 border border-white/30 text-white flex items-center justify-center backdrop-blur-md">
+<span class="material-symbols-outlined text-sm">verified</span>
+</div>
+</div>
+<!-- Logo Area -->
+<div class="flex flex-col items-center mb-10">
+<div class="w-24 h-24 mb-4 relative flex items-center justify-center">
+<span class="material-symbols-outlined text-7xl text-white opacity-80" style="font-variation-settings: 'FILL' 0, 'wght' 200;">shopping_bag</span>
+<span class="material-symbols-outlined text-4xl text-primary-fixed absolute drop-shadow-[0_0_10px_rgba(160,251,0,0.5)]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary-fixed uppercase leading-none tracking-tighter italic text-center drop-shadow-md">Runners'<br/><span class="text-white">Xchange</span></h1>
+</div>
+<!-- Login Prompt -->
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 text-center">Login With</p>
+<!-- Social Logins -->
+<div class="flex space-x-4 mb-8">
+<button class="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors backdrop-blur-md">
+<span class="font-headline-md text-headline-md">f</span>
+</button>
+<button class="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors backdrop-blur-md">
+<span class="font-headline-md text-headline-md">G</span>
+</button>
+<button class="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors backdrop-blur-md">
+<span class="material-symbols-outlined text-2xl">mail</span>
+</button>
+</div>
+<!-- Divider -->
+<div class="flex items-center w-full max-w-[200px] mb-8">
+<div class="flex-1 h-px bg-white/10"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant px-4">OR</span>
+<div class="flex-1 h-px bg-white/10"></div>
+</div>
+<!-- Primary CTA -->
+<button class="w-full bg-primary-fixed text-surface-container-lowest font-label-bold text-label-bold py-4 rounded-full shadow-[0_0_20px_rgba(160,251,0,0.3)] hover:opacity-90 active:scale-95 transition-all">
+                Create a New Account
+            </button>
+<!-- Footer Text -->
+<p class="font-label-sm text-label-sm text-on-surface-variant/50 mt-6 text-center">
+                Powered by RUNNER'S XCHANGE
+            </p>
+</div>
+</div>
+</body></html>
