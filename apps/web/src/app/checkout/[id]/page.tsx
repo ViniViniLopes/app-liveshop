@@ -1,11 +1,46 @@
 'use client';
 
 import React, { useState } from 'react';
-import { CreditCard, QrCode, ShieldCheck, ArrowLeft, Lock } from 'lucide-react';
+import { ShieldCheck, ArrowLeft, Lock, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 
 export default function CheckoutPage({ params }: { params: { id: string } }) {
-  const [method, setMethod] = useState<'credit_card' | 'pix'>('credit_card');
+  const [loading, setLoading] = useState(false);
+
+  const handleStripeCheckout = async () => {
+    setLoading(true);
+    try {
+      // Fetch user/tenant context if any, hardcoded here for simplicity
+      const tenant_id = 'c1234567-8901-2345-6789-0123456789ab'; // Mock tenant
+
+      const response = await fetch(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/checkout-create`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`
+        },
+        body: JSON.stringify({
+          tenant_id,
+          product_id: params.id,
+          quantity: 1,
+          customer_email: 'cliente@teste.com' // Idealmente pegaria do contexto do usuario logado
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.payment_url) {
+        window.location.href = data.payment_url;
+      } else {
+        alert('Erro ao gerar checkout: ' + (data.error || 'Desconhecido'));
+        setLoading(false);
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Erro de conexão ao processar checkout.');
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#050505] text-white flex flex-col md:flex-row">
@@ -57,62 +92,43 @@ export default function CheckoutPage({ params }: { params: { id: string } }) {
         <div className="max-w-md mx-auto w-full space-y-8">
           <div className="flex items-center gap-2 bg-[#a0fb00]/10 text-[#a0fb00] px-4 py-2 rounded-full self-start w-fit">
             <ShieldCheck size={16} />
-            <span className="text-[10px] font-black uppercase tracking-widest">Pagamento Seguro PCI-DSS</span>
+            <span className="text-[10px] font-black uppercase tracking-widest">Pagamento 100% Seguro</span>
           </div>
 
-          <h2 className="text-2xl font-black uppercase italic tracking-tighter">Escolha o Método</h2>
-
-          {/* Payment Tabs */}
-          <div className="flex gap-2 p-1 bg-white/5 rounded-2xl border border-white/10">
-            <button 
-              onClick={() => setMethod('credit_card')}
-              className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl transition-all ${method === 'credit_card' ? 'bg-white text-black font-black' : 'text-white/40 hover:text-white'}`}
-            >
-              <CreditCard size={18} />
-              CARTÃO
-            </button>
-            <button 
-              onClick={() => setMethod('pix')}
-              className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl transition-all ${method === 'pix' ? 'bg-white text-black font-black' : 'text-white/40 hover:text-white'}`}
-            >
-              <QrCode size={18} />
-              PIX
-            </button>
+          <div className="space-y-2">
+            <h2 className="text-2xl font-black uppercase italic tracking-tighter">Finalizar Pedido</h2>
+            <p className="text-white/40 text-sm">Você será redirecionado para o ambiente seguro da Stripe para inserir os dados do cartão ou pagar via Pix.</p>
           </div>
 
-          {/* Form */}
-          <div className="space-y-6">
-            {method === 'credit_card' ? (
-              <>
-                <div className="space-y-4">
-                  <input placeholder="Número do Cartão" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-sm focus:border-[#a0fb00]/50 outline-none" />
-                  <input placeholder="Nome como no Cartão" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-sm focus:border-[#a0fb00]/50 outline-none" />
-                  <div className="flex gap-4">
-                    <input placeholder="MM/AA" className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-sm focus:border-[#a0fb00]/50 outline-none" />
-                    <input placeholder="CVV" className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-sm focus:border-[#a0fb00]/50 outline-none" />
-                  </div>
-                </div>
-                <button className="w-full bg-[#a0fb00] text-black font-black py-5 rounded-2xl hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2">
-                  FINALIZAR COMPRA
+          <div className="bg-white/5 border border-white/10 p-6 rounded-3xl space-y-6">
+            <div className="flex justify-center gap-4 text-white/40 opacity-50 mb-4">
+              {/* Fake card flags */}
+              <div className="h-8 w-12 bg-white/20 rounded"></div>
+              <div className="h-8 w-12 bg-white/20 rounded"></div>
+              <div className="h-8 w-12 bg-white/20 rounded"></div>
+            </div>
+            
+            <button 
+              onClick={handleStripeCheckout}
+              disabled={loading}
+              className="w-full bg-[#a0fb00] disabled:bg-[#a0fb00]/50 text-black font-black py-5 rounded-2xl hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="animate-spin" size={18} />
+                  CARREGANDO...
+                </>
+              ) : (
+                <>
+                  PAGAR COM STRIPE
                   <Lock size={18} />
-                </button>
-              </>
-            ) : (
-              <div className="bg-white/5 border border-white/10 p-8 rounded-3xl text-center space-y-6">
-                <div className="w-48 h-48 bg-white mx-auto p-4 rounded-2xl flex items-center justify-center">
-                  <QrCode size={120} className="text-black" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold mb-2">Escaneie o QR Code para pagar</p>
-                  <p className="text-xs text-white/40">A aprovação é instantânea e o pedido será enviado ao Bling imediatamente.</p>
-                </div>
-                <button className="text-[#a0fb00] text-xs font-black uppercase hover:underline">COPIAR CÓDIGO PIX</button>
-              </div>
-            )}
+                </>
+              )}
+            </button>
           </div>
 
           <div className="text-center">
-            <p className="text-[10px] text-white/20 uppercase tracking-[0.2em]">Liveshop Zen S.A. • CNPJ 00.000.000/0000-00</p>
+            <p className="text-[10px] text-white/20 uppercase tracking-[0.2em]">Liveshop Zen S.A. • Processado por Stripe</p>
           </div>
         </div>
       </div>

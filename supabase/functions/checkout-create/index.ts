@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts"
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2"
+import Stripe from "npm:stripe@^14.0.0"
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -12,6 +13,12 @@ serve(async (req) => {
   }
 
   try {
+    const stripeKey = Deno.env.get('STRIPE_SECRET_KEY')
+    if (!stripeKey) {
+      throw new Error('STRIPE_SECRET_KEY is not configured')
+    }
+    const stripe = new Stripe(stripeKey, { apiVersion: '2023-10-16', httpClient: Stripe.createFetchHttpClient() })
+
     const supabase = createClient(
       Deno.env.get('SUPABASE_URL') ?? '',
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
@@ -24,8 +31,7 @@ serve(async (req) => {
       click_id, 
       affiliate_id,
       media_item_id,
-      customer_email,
-      customer_name
+      customer_email
     } = await req.json()
 
     // 1. Resolve Product & Price
@@ -37,58 +43,49 @@ serve(async (req) => {
 
     if (!product) throw new Error('Product not found')
 
-    // 2. Prepare Pagar.me Payload (V5 API)
-    // Aqui injetamos os metadados que o webhook vai ler depois
-    const pagarmePayload = {
-      items: [{
-        amount: Math.round(product.price * 100),
-        description: product.name,
-        quantity: quantity,
-        code: product.sku
-      }],
-      customer: {
-        name: customer_name || 'Customer',
-        email: customer_email || 'customer@example.com',
-        type: 'individual',
-        document: '00000000000' // Mock, em produção viria do form
-      },
-      payments: [{
-        payment_method: 'checkout',
-        checkout: {
-          expires_in: 120,
-          billing_address_editable: true,
-          customer_editable: true,
-          accepted_payment_methods: ['credit_card', 'pix', 'boleto'],
-          success_url: `https://store.liveshop.com.br/success`,
-        }
-      }],
+    // 2. Prepare Stripe Session
+    // A URL de sucesso deve idealmente apontar para o app ou site do tenant
+    const successUrl = Deno.env.get('FRONTEND_URL') || 'http://localhost:3000'
+    
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [
+        {
+          price_data: {
+            currency: 'brl',
+            product_data: {
+              name: product.name,
+              description: product.description || undefined,
+              images: product.main_image_url ? [product.main_image_url] : [],
+            },
+            unit_amount: Math.round(product.price * 100), // Stripe expects cents
+          },
+          quantity: quantity,
+        },
+      ],
+      mode: 'payment',
+      success_url: `${successUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${successUrl}/`,
+      customer_email: customer_email,
       metadata: {
         tenant_id,
-        click_id,
-        affiliate_id,
-        media_item_id,
+        click_id: click_id || null,
+        affiliate_id: affiliate_id || null,
+        media_item_id: media_item_id || null,
         product_id: product.id,
         bling_product_id: product.bling_product_id
       }
-    }
-
-    // 3. Call Pagar.me API (Mocking fetch for now)
-    // const response = await fetch('https://api.pagar.me/core/v5/orders', { ... })
-    
-    // Simulating Pagar.me Response
-    const mockOrder = {
-      id: `or_${Math.random().toString(36).substr(2, 9)}`,
-      checkouts: [{ payment_url: `https://checkout.pagar.me/${Math.random().toString(36).substr(2, 9)}` }]
-    }
+    })
 
     return new Response(JSON.stringify({ 
-      payment_url: mockOrder.checkouts[0].payment_url,
-      external_order_id: mockOrder.id
+      payment_url: session.url,
+      external_order_id: session.id
     }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' }
     })
 
-  } catch (error) {
+  } catch (error: any) {
+    console.error('Checkout error:', error);
     return new Response(JSON.stringify({ error: error.message }), {
       status: 500,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' }
