@@ -1,18 +1,20 @@
 'use client';
 
 import React, { useState } from 'react';
-import { GamifiedProgress, PaymentOption, NeonButton, GlassPanel } from '@liveshop/liquidos-ui';
-import { ChevronLeft, MapPin, CreditCard, QrCode, FileText, Lock } from 'lucide-react';
+import { GamifiedProgress, NeonButton, GlassPanel } from '@liveshop/liquidos-ui';
+import { ChevronLeft, MapPin, Lock } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
+import { createClient } from '@/lib/supabase/client';
 import { useCart } from '@/context/CartContext';
+import { createStripeCheckoutSession } from './actions';
 
 export default function CheckoutPage() {
-  const [paymentMethod, setPaymentMethod] = useState('credit_card');
   const router = useRouter();
   const { items, total } = useCart();
   const [loading, setLoading] = useState(true);
+  const [userEmail, setUserEmail] = useState<string | undefined>();
+  const supabase = createClient();
 
   React.useEffect(() => {
     const checkAuth = async () => {
@@ -20,28 +22,34 @@ export default function CheckoutPage() {
       if (!session) {
         router.push('/auth');
       } else {
+        setUserEmail(session.user.email);
         setLoading(false);
       }
     };
     checkAuth();
-  }, [router]);
-
-  if (loading) return <div className="h-screen bg-black flex items-center justify-center text-[#a0fb00] font-black italic animate-pulse">Autenticando...</div>;
+  }, [router, supabase.auth]);
 
   const FREE_SHIPPING_TARGET = 1500;
   const isGoalReached = total >= FREE_SHIPPING_TARGET;
   const remaining = Math.max(0, FREE_SHIPPING_TARGET - total);
   const [isPaying, setIsPaying] = useState(false);
-  const { clearCart } = useCart();
 
   const handlePay = async () => {
     setIsPaying(true);
-    // Simular processamento do gateway (Pagar.me/Stripe)
-    await new Promise(resolve => setTimeout(resolve, 3000));
-    
-    clearCart();
-    router.push('/checkout/success');
+    try {
+      // Create a Stripe checkout session via server action
+      const paymentUrl = await createStripeCheckoutSession(items, userEmail);
+      
+      // Redirect directly to Stripe Checkout
+      window.location.href = paymentUrl;
+    } catch (error) {
+      console.error('Failed to create checkout session:', error);
+      alert('Houve um erro ao processar seu pagamento. Tente novamente.');
+      setIsPaying(false);
+    }
   };
+
+  if (loading) return <div className="h-screen bg-black flex items-center justify-center text-[#a0fb00] font-black italic animate-pulse">Autenticando...</div>;
 
   if (isPaying) {
     return (
@@ -51,7 +59,7 @@ export default function CheckoutPage() {
           <div className="absolute inset-0 border-4 border-t-[#a0fb00] rounded-full animate-spin shadow-[0_0_20px_rgba(160,251,0,0.5)]" />
         </div>
         <div className="flex flex-col items-center gap-2">
-          <h2 className="text-xl font-black italic uppercase tracking-widest animate-pulse">Processando Pagamento</h2>
+          <h2 className="text-xl font-black italic uppercase tracking-widest animate-pulse">Redirecionando para Pagamento Seguro</h2>
           <p className="text-[10px] text-white/40 font-bold uppercase tracking-widest">Criptografia de 256 bits ativa</p>
         </div>
       </div>
@@ -84,34 +92,6 @@ export default function CheckoutPage() {
             </div>
             <button className="text-[10px] font-black text-[#a0fb00] uppercase border border-[#a0fb00]/30 px-3 py-2 rounded-full">Editar</button>
           </GlassPanel>
-        </section>
-
-        {/* 💳 PAYMENT SECTION */}
-        <section>
-          <h2 className="text-xs font-black italic uppercase tracking-widest text-white/40 mb-4 px-1">Método de Pagamento</h2>
-          <div className="flex flex-col gap-3">
-            <PaymentOption 
-              title="Cartão de Crédito"
-              subtitle="Até 10x sem juros"
-              selected={paymentMethod === 'credit_card'}
-              onSelect={() => setPaymentMethod('credit_card')}
-              icon={<CreditCard className="w-5 h-5" />}
-            />
-            <PaymentOption 
-              title="Pix"
-              subtitle="Aprovação imediata"
-              selected={paymentMethod === 'pix'}
-              onSelect={() => setPaymentMethod('pix')}
-              icon={<QrCode className="w-5 h-5" />}
-            />
-            <PaymentOption 
-              title="Boleto"
-              subtitle="Vencimento em 3 dias"
-              selected={paymentMethod === 'boleto'}
-              onSelect={() => setPaymentMethod('boleto')}
-              icon={<FileText className="w-5 h-5" />}
-            />
-          </div>
         </section>
 
         {/* 🎁 GAMIFIED SUMMARY */}
@@ -153,7 +133,7 @@ export default function CheckoutPage() {
             icon={<Lock className="w-5 h-5" />} 
             className="py-4 uppercase tracking-widest font-black italic"
           >
-            Pagar Agora
+            Pagar Seguro no Stripe
           </NeonButton>
         </div>
       </div>

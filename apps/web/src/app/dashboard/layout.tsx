@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { Button } from '@liveshop/liquidos-ui';
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -47,7 +46,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         <header className="h-16 border-b border-white/5 flex items-center justify-between px-8 bg-[#050505]/50 backdrop-blur-md sticky top-0 z-40">
           <div className="text-sm text-zinc-400 font-medium">Dashboard / Visão Geral</div>
           <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm">Ver Loja</Button>
+            <button className="px-4 py-1.5 border border-white/20 rounded-lg text-sm hover:bg-white/5 transition-colors">Ver Loja</button>
             <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10" />
           </div>
         </header>

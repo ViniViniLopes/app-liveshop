@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { SocialLoginButton, NeonButton } from '@liveshop/liquidos-ui';
-import { ChevronLeft, User, Mail, Facebook, Github } from 'lucide-react';
+import { ChevronLeft, User, Mail } from 'lucide-react';
 import Link from 'next/link';
 
 export default function LoginSelectionPage() {
@@ -49,8 +49,6 @@ export default function LoginSelectionPage() {
           {/* Social Logins */}
           <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 mb-6">Entrar com</p>
           <div className="flex gap-6 mb-10">
-            <SocialLoginButton icon={<Facebook className="w-6 h-6 fill-current" />} />
-            <SocialLoginButton icon={<Github className="w-6 h-6 fill-current" />} />
             <Link href="/auth/email">
               <SocialLoginButton icon={<Mail className="w-6 h-6" />} />
             </Link>

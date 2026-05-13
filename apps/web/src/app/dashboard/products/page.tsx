@@ -1,5 +1,3 @@
-import { Card, Button } from '@liveshop/liquidos-ui';
-
 export default function ProductsPage() {
   // Mock data - will be replaced with DB fetch
   const products = [
@@ -16,12 +14,12 @@ export default function ProductsPage() {
           <p className="text-zinc-500 text-sm">Gerencie o inventário sincronizado do seu ERP Bling.</p>
         </div>
         <div className="flex gap-3">
-          <Button variant="outline">Sincronizar Bling</Button>
-          <Button variant="neon">Novo Produto</Button>
+          <button className="px-4 py-2 border border-white/20 rounded-lg text-sm hover:bg-white/5 transition-colors">Sincronizar Bling</button>
+          <button className="px-4 py-2 bg-[#a0fb00] text-black font-bold rounded-lg text-sm hover:bg-[#a0fb00]/90 transition-colors">Novo Produto</button>
         </div>
       </div>
 
-      <Card className="p-0 overflow-hidden">
+      <div className="p-0 overflow-hidden bg-white/5 border border-white/10 rounded-xl">
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="border-b border-white/5 bg-white/[0.02]">
@@ -65,7 +63,7 @@ export default function ProductsPage() {
             ))}
           </tbody>
         </table>
-      </Card>
+      </div>
     </div>
   );
 }

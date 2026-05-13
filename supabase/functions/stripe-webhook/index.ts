@@ -30,10 +30,10 @@ serve(async (req) => {
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object as Stripe.Checkout.Session
     
-    // Ler metadados que injetamos na criacao
-    const { tenant_id, product_id, click_id, affiliate_id, media_item_id, bling_product_id } = session.metadata || {}
+    // Read metadata injected during checkout session creation
+    const { tenant_id, order_id, click_id, affiliate_id, media_item_id } = session.metadata || {}
 
-    if (!tenant_id || !product_id) {
+    if (!tenant_id || !order_id) {
       console.error('Session missing required metadata:', session.metadata)
       return new Response('Missing metadata', { status: 400 })
     }
@@ -43,36 +43,21 @@ serve(async (req) => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     )
 
-    // 1. Criar o pedido (Sales Order)
+    // 1. Update the pending order to 'paid'
     const { data: order, error: orderError } = await supabase
       .from('sales_orders')
-      .insert({
-        tenant_id,
-        total_amount: (session.amount_total || 0) / 100, // Volta pra Real
-        status: 'paid', // Ja entra como pago pois e checkout completed
-        click_id: click_id || null,
-        media_item_id: media_item_id || null
-      })
+      .update({ status: 'paid' })
+      .eq('id', order_id)
+      .eq('tenant_id', tenant_id)
       .select()
       .single()
 
     if (orderError || !order) {
-      console.error('Error creating order:', orderError)
+      console.error('Error updating order:', orderError)
       return new Response('Database error', { status: 500 })
     }
 
-    // 2. Inserir os Itens (Order Items)
-    // Para simplificar, consideramos 1 item baseado no metadata
-    // Se fosse carrinho real, teriamos que usar session.line_items ou expand
-    await supabase.from('order_items').insert({
-      tenant_id,
-      order_id: order.id,
-      bling_product_id: bling_product_id,
-      quantity: 1, // hardcoded for 1-click buy
-      unit_price: (session.amount_total || 0) / 100
-    })
-
-    // 3. Registrar o Pagamento (Payments)
+    // 2. Register the payment
     await supabase.from('payments').insert({
       tenant_id,
       order_id: order.id,
